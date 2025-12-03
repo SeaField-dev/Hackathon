@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Local ChatGPT</title>
+
+    <!-- Markdown libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.4.0/dist/purify.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            display: flex;
+            height: 100vh;
+        }
+
+        #sidebar {
+            width: 260px;
+            background: #222;
+            color: white;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        #newBtn {
+            background: #007aff;
+            padding: 14px;
+            width: 100%;
+            font-size: 16px;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        #newBtn:hover { background: #0062cc; }
+
+        .history-item {
+            padding: 10px;
+            background: #333;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        /* ACTIVE CHAT HIGHLIGHT */
+        .history-item.active {
+            background: #555 !important;
+        }
+
+        .history-left {
+            flex: 1;
+            cursor: pointer;
+            padding-right: 8px;
+            color: white;
+            word-break: break-word;
+        }
+
+        .icon-container {
+            display: flex;
+            gap: 0;
+        }
+
+        .icon-btn {
+            color: white;
+            cursor: pointer;
+            padding: 6px 8px;
+            border-radius: 6px;
+        }
+
+        .icon-btn:hover {
+            background: #555;
+        }
+
+        .rename-icon { font-size: 16px; }
+        .delete-icon { font-size: 18px; }
+
+        .rename-input {
+            width: 100%;
+            padding: 6px;
+            background: #555;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        #main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        #chat {
+            flex: 1;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        /* FADE-IN ANIMATION FOR BUBBLES */
+        .bubble {
+            max-width: 75%;
+            padding: 12px 16px;
+            margin: 12px 0;
+            border-radius: 16px;
+
+            opacity: 0;
+            transform: translateY(4px);
+            animation: bubbleIn 0.18s ease-out forwards;
+        }
+
+        @keyframes bubbleIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .user { background: #0084ff; color: white; margin-left: auto; }
+        .assistant { background: #eee; margin-right: auto; }
+
+        .timestamp {
+            font-size: 11px;
+            opacity: .6;
+            margin-top: 5px;
+            text-align: right;
+        }
+
+        /* Typing indicator */
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: #999;
+            border-radius: 50%;
+            animation: blink 1.4s infinite both;
+        }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes blink {
+            0% { opacity: 0.2; }
+            20% { opacity: 1; }
+            100% { opacity: 0.2; }
+        }
+
+        #inputContainer {
+            margin-top: 10px;
+            display: flex;
+        }
+
+        #inputWrapper {
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 22px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        #input {
+            flex: 1;
+            padding: 12px 14px;
+            font-size: 16px;
+            border: none;
+            outline: none;
+        }
+
+        #sendBtn {
+            background: #007aff;
+            color: white;
+            border: none;
+            padding: 0 20px;
+            height: 100%;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        #sendBtn:hover { background: #0066d6; }
+    </style>
+</head>
+<body>
+
+<div id="sidebar">
+    <button id="newBtn" onclick="startNewChat()">➕ New Chat</button>
+    <h3>Chat History</h3>
+    <div id="historyList">Loading...</div>
+</div>
+
+<div id="main">
+    <h2>Local ChatGPT</h2>
+
+    <div id="chat"></div>
+
+    <div id="inputContainer">
+        <div id="inputWrapper">
+            <input id="input" placeholder="Type a message..." />
+            <button id="sendBtn" onclick="sendMessage()">➤</button>
+        </div>
+    </div>
+</div>
+
+<script>
+let activeChatBase = null;
+
+function renderMarkdown(mdText) {
+    const html = marked.parse(mdText || "");
+    return DOMPurify.sanitize(html);
+}
+
+/* TYPING ANIMATION ENGINE */
+async function typeTextIntoBubble(bubble, text) {
+    const speed = 4;
+    let i = 0;
+
+    return new Promise(resolve => {
+        function step() {
+            if (i < text.length) {
+                bubble.innerHTML = renderMarkdown(text.slice(0, i));
+                i += speed;
+                document.getElementById("chat").scrollTop = document.getElementById("chat").scrollHeight;
+                requestAnimationFrame(step);
+            } else {
+                bubble.innerHTML = renderMarkdown(text);
+                resolve();
+            }
+        }
+        step();
+    });
+}
+
+function timestamp() {
+    return new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+}
+
+function addBubble(text, sender) {
+    const chat = document.getElementById("chat");
+
+    const wrap = document.createElement("div");
+    wrap.className = "bubble " + sender;
+
+    const content = document.createElement("div");
+    content.innerHTML = renderMarkdown(text);
+
+    const time = document.createElement("div");
+    time.className = "timestamp";
+    time.textContent = timestamp();
+
+    wrap.appendChild(content);
+    wrap.appendChild(time);
+    chat.appendChild(wrap);
+
+    chat.scrollTop = chat.scrollHeight;
+    return content;
+}
+
+function addTypingIndicator() {
+    const chat = document.getElementById("chat");
+
+    const wrap = document.createElement("div");
+    wrap.className = "bubble assistant";
+
+    wrap.innerHTML = `
+        <div class="typing-indicator">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+        </div>`;
+
+    chat.appendChild(wrap);
+    chat.scrollTop = chat.scrollHeight;
+    return wrap;
+}
+
+async function deleteChat(base) {
+    if (!confirm("Delete this chat permanently?")) return;
+    await fetch("http://localhost:8000/delete_chat?base=" + base, { method: "DELETE" });
+
+    document.getElementById("chat").innerHTML = "";
+    activeChatBase = null;
+    loadHistoryList();
+}
+
+async function saveInlineRename(base, newTitle, div, input, oldText) {
+    const finalTitle = newTitle.trim() === "" ? oldText : newTitle.trim();
+
+    await fetch(
+        "http://localhost:8000/rename_chat?base=" + encodeURIComponent(base) +
+        "&title=" + encodeURIComponent(finalTitle),
+        { method: "PUT" }
+    );
+
+    loadHistoryList();
+}
+
+function cancelInlineRename(div, input, oldText) {
+    const restored = document.createElement("span");
+    restored.className = "history-left";
+    restored.textContent = oldText;
+    restored.onclick = () => loadChat(div.dataset.base);
+    div.replaceChild(restored, input);
+}
+
+async function startNewChat() {
+    await fetch("http://localhost:8000/new_chat", { method: "POST" });
+    document.getElementById("chat").innerHTML = "";
+    activeChatBase = null;
+    loadHistoryList();
+}
+
+async function loadHistoryList() {
+    const res = await fetch("http://localhost:8000/history");
+    const items = await res.json();
+
+    const list = document.getElementById("historyList");
+    list.innerHTML = "";
+
+    items.forEach((item) => {
+        const div = document.createElement("div");
+        div.className = "history-item";
+        div.dataset.base = item.base;
+
+        if (item.base === activeChatBase) {
+            div.classList.add("active");
+        }
+
+        let left = document.createElement("span");
+        left.className = "history-left";
+        left.textContent = item.title;
+        left.onclick = () => loadChat(item.base);
+
+        const rename = document.createElement("span");
+        rename.className = "icon-btn rename-icon";
+        rename.textContent = "✎";
+        rename.onclick = (e) => {
+            e.stopPropagation();
+
+            const originalText = item.title;
+            const input = document.createElement("input");
+            input.className = "rename-input";
+            input.value = originalText;
+
+            div.replaceChild(input, left);
+            input.focus();
+            input.select();
+
+            input.addEventListener("keydown", async (ev) => {
+                if (ev.key === "Enter") {
+                    saveInlineRename(item.base, input.value, div, input, originalText);
+                }
+                if (ev.key === "Escape") {
+                    cancelInlineRename(div, input, originalText);
+                }
+            });
+
+            input.addEventListener("blur", () => {
+                saveInlineRename(item.base, input.value, div, input, originalText);
+            });
+        };
+
+        const del = document.createElement("span");
+        del.className = "icon-btn delete-icon";
+        del.textContent = "🗑";
+        del.onclick = (e) => {
+            e.stopPropagation();
+            deleteChat(item.base);
+        };
+
+        const iconWrap = document.createElement("span");
+        iconWrap.className = "icon-container";
+        iconWrap.appendChild(rename);
+        iconWrap.appendChild(del);
+
+        div.appendChild(left);
+        div.appendChild(iconWrap);
+        list.appendChild(div);
+    });
+}
+
+async function loadChat(base) {
+    const res = await fetch("http://localhost:8000/load?base=" + base);
+    const messages = await res.json();
+
+    activeChatBase = base;
+
+    const chat = document.getElementById("chat");
+    chat.innerHTML = "";
+
+    messages.forEach((m) =>
+        addBubble(m.content, m.role === "user" ? "user" : "assistant")
+    );
+
+    loadHistoryList();
+}
+
+async function sendMessage() {
+    const text = document.getElementById("input").value;
+    if (!text.trim()) return;
+
+    document.getElementById("input").value = "";
+    addBubble(text, "user");
+
+    const typingBubble = addTypingIndicator();
+    const bubbleContent = addBubble("", "assistant");
+    bubbleContent.parentElement.style.display = "none";
+
+    const response = await fetch(
+        "http://localhost:8000/chat?message=" + encodeURIComponent(text),
+        { method: "GET" }
+    );
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let fullText = "";
+    let firstToken = true;
+
+    while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        const chunk = decoder.decode(value, { stream: true });
+        fullText += chunk;
+
+        if (firstToken) {
+            typingBubble.remove();
+            bubbleContent.parentElement.style.display = "block";
+            firstToken = false;
+        }
+    }
+
+    /* Animate the AI typing */
+    await typeTextIntoBubble(bubbleContent, fullText);
+
+    /* Auto-select new chat on first assistant reply */
+    await loadHistoryList();
+
+    if (!activeChatBase) {
+        const res = await fetch("http://localhost:8000/history");
+        const items = await res.json();
+        if (items.length > 0) {
+            const last = items[items.length - 1];
+            activeChatBase = last.base;
+            loadHistoryList();
+        }
+    }
+}
+
+document.getElementById("input").addEventListener("keydown", function (e) {
+    if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+    }
+});
+
+loadHistoryList();
+</script>
+
+</body>
+</html>

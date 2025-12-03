@@ -1,0 +1,36 @@
+STARTUP PROCEDURE
+
+Ensure Python is installed on your system.
+
+Install all required packages using the requirements file.
+Run this command in a terminal from inside the project folder:
+pip install -r requirements.txt
+
+Make sure your project directory contains the following files:
+server.py
+index.html
+.env
+requirements.txt
+history/ (this will be created automatically)
+
+Confirm your .env file contains your API key in the following format:
+OPENAI_API_KEY=your_api_key_here
+
+Start the backend server.
+Run this command from inside the project folder:
+uvicorn server:app --reload --port 8000
+If uvicorn is not recognized, use:
+python -m uvicorn server:app --reload --port 8000
+
+Start the frontend.
+Run this command:
+python -m http.server 3000
+Then open the following URL in a browser:
+http://localhost:3000/index.html
+
+Use the application.
+Send a message through the interface.
+The backend will stream a response.
+Chats are saved automatically once enough context is provided.
+
+To stop the application, close the terminal windows running uvicorn and the HTTP server.

@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "Hi, how does this work?"
+  },
+  {
+    "role": "assistant",
+    "content": "I respond to your messages, step by step, using patterns I learned from a lot of text and code.\n\nIn practice:\n1. You type a question or task (anything from \u201cexplain X\u201d to \u201cwrite code\u201d or \u201canalyze this text\u201d).\n2. I read the whole conversation so far and your latest message.\n3. I generate a response token-by-token (word-by-word), predicting what is most useful and relevant next, based on:\n   - my training data (up to late 2024),\n   - your specific instructions (tone, format, depth),\n   - and system rules (like being safe and factual where possible).\n4. I don\u2019t browse the live web by default, and I don\u2019t remember you across separate chats unless the platform explicitly supports that.\n\nYou can think of me as:\n- good for: explanations, brainstorming, summaries, code help, drafting emails/docs, practicing languages, etc.\n- not good for: real-time info (like stock prices *right now*), personal medical/legal/financial decisions without expert review, or anything requiring access to private systems I can\u2019t see.\n\nIf you tell me what you\u2019d like to do\u2014learn something, solve a problem, write something\u2014I can show you concretely how it works."
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "Hi, how much do you know about cars?"
+  },
+  {
+    "role": "assistant",
+    "content": "I can help with most car-related topics, including:\n\n- How different systems work (engine, transmission, suspension, brakes, hybrid/EV systems)\n- Basic diagnostics (symptoms, likely causes, what to check before seeing a mechanic)\n- Maintenance schedules and best practices (oil, fluids, tires, brakes, filters, etc.)\n- Choosing a car (comparing models, reliability considerations, use-case matching)\n- Technical concepts (turbo vs NA, CVT vs automatic, AWD vs 4WD, battery tech in EVs)\n- Understanding error codes and dashboard lights (in a general sense)\n- Driving dynamics and safety features (ABS, ESC, ADAS, airbags, crash ratings)\n\nI don\u2019t have live access to current local prices or up-to-the-minute used-car listings, but I can help you evaluate options or understand what to look for.\n\nTell me what you\u2019re interested in\u2014are you looking for buying advice, troubleshooting an issue, learning how something works, or something else?"
+  }
+]
