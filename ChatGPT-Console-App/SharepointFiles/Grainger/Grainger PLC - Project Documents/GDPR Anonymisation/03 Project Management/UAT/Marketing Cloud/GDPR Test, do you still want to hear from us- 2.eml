@@ -1,0 +1,543 @@
+Received: from PA2PR04MB10446.eurprd04.prod.outlook.com
+ (2603:10a6:102:415::11) by PA4PR04MB9462.eurprd04.prod.outlook.com with
+ HTTPS; Tue, 13 Aug 2024 09:02:12 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=RvuF4ASuG3BZ5nFqDZRvklmsHSo/zt03u6zgWRV9F6cK8suIKevy5W6Xcgr0k5+e+IEjCnwbQ1B5Zpid2f7Y5FXA2QFFg8lEvZ4ARldsaJ4n6zxuGZGlJsJ0QyqEUPOw0oXy/fN3baDZvIXCWYTPcOeFkDE5RTyssC4TevXmFoKwOGsahxaWi5uyfc7uOyi2CPyQ9WJq2MDQERTCSiOMZTtoFTH4qBDcQIx27YiDttzPSo8XC2wkrnn7E50UMP7fURTAP9GcoLHhAggWmTSTe+NFyAvPdmMVLQql/YOg+IcZshRsuEfAlpn41TS70Fd3CkrT6b04j+q7NDpyldrStQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZJ9Ls97hodweXwDuqICe4WZZlEKpCqtdHz6aSaQW8QI=;
+ b=R6NiOaPtH4nmJtdmfjdWdslnsbz53vZ9MSpa8iLnG9dj2GB3zUcacHRrClK1GvJDNPJ0coESJovWGsys49p8GutbF0glz5tckVHtmiDphRfD97C2QfZZWx4tYDpohSyHDMNmeH8EnO8oADtYYOT6HKvvcrVy+0Wje18zio7WttOC1mWg4kbWINOqHFfD+MLJga8X7JqB2KLvRFlwe8v2b5s+sq6ZXcSFZIaJLH/eDGReW6020xPe4Ja3uPr1f1AbCCplPGIPCtb5lLjEOEDR4gecQRUc6j6JkX4yy2A4ctsl2ica4hSCvhA8OyedUnG6dECALF1ka1ooTj9adDmnbA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=fail (sender ip is
+ 41.74.197.102) smtp.rcpttodomain=openboxsoftware.com
+ smtp.mailfrom=bounce.marketing-graingerplc.co.uk; dmarc=fail (p=reject
+ sp=reject pct=100) action=oreject header.from=marketing-graingerplc.co.uk;
+ dkim=fail (body hash did not verify) header.d=marketing-graingerplc.co.uk;
+ arc=pass (0 oda=0 ltdi=0 93)
+Received: from AS9PR04CA0056.eurprd04.prod.outlook.com (2603:10a6:20b:46a::24)
+ by PA2PR04MB10446.eurprd04.prod.outlook.com (2603:10a6:102:415::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7849.22; Tue, 13 Aug
+ 2024 09:02:10 +0000
+Received: from AM2PEPF0001C711.eurprd05.prod.outlook.com
+ (2603:10a6:20b:46a:cafe::99) by AS9PR04CA0056.outlook.office365.com
+ (2603:10a6:20b:46a::24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7849.22 via Frontend
+ Transport; Tue, 13 Aug 2024 09:02:10 +0000
+Authentication-Results: spf=fail (sender IP is 41.74.197.102)
+ smtp.mailfrom=bounce.marketing-graingerplc.co.uk; dkim=fail (body hash did
+ not verify) header.d=marketing-graingerplc.co.uk;dmarc=fail action=oreject
+ header.from=marketing-graingerplc.co.uk;compauth=none reason=451
+Received-SPF: Fail (protection.outlook.com: domain of
+ bounce.marketing-graingerplc.co.uk does not designate 41.74.197.102 as
+ permitted sender) receiver=protection.outlook.com; client-ip=41.74.197.102;
+ helo=za-smtp-inbound-delivery-1.mimecast.co.za;
+Received: from za-smtp-inbound-delivery-1.mimecast.co.za (41.74.197.102) by
+ AM2PEPF0001C711.mail.protection.outlook.com (10.167.16.181) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.7849.8
+ via Frontend Transport; Tue, 13 Aug 2024 09:02:09 +0000
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=dkim.mimecast.com; s=201903; t=1723539727;
+	h=from:from:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:mime-version:mime-version:
+	 content-type:content-type:list-id:list-unsubscribe:
+	 list-unsubscribe-post:dkim-signature;
+	bh=ZJ9Ls97hodweXwDuqICe4WZZlEKpCqtdHz6aSaQW8QI=;
+	b=QNMbiCHVqKCZMMP4zpRCMIqXMpNRHqv64Lc6iL/S2Sc4vMj7+MVc1XzFWdBSumkX/Eel1L
+	NlAUOhXpEHmRM1Kkl1rIHv7/TOha6/JqBe6QyQAEF4LUt/fMVxpjIipWYBogrQ6pTy4dWV
+	OHlSnezOJ7yWfuCOtTj3FDOWBgcAHDHCvWrTrV+24CxVj5QvyV+tH9zBoyVrYN27VWpJMD
+	PUv8kiKGltrDQVgVpUi8uDrkx5dRD204QqlkCAD4Ro2Wg6PytMbNEliqXIzG9vqdw5MHiX
+	CzP9bXxjSVPfbTRkQ+1+YTzoyA0NGm7I+q4HAbjASXqJvoW0SUBYgTrdR9QyVQ==
+ARC-Seal: i=1; s=201903; d=dkim.mimecast.com; t=1723539727; a=rsa-sha256;
+	cv=none;
+	b=NgLkLVdMf6d2DToW3q4AY745oWXnl2YqC2MIUkip+DYc/BQWWtTltwaFcYs5vP0AOm32EU
+	U8Z2cWwdZaoDi5yVUxYedixdkKbncRrq8+WZh2Tgh6hpkOrraSmatMwWfxKhXmo8Hl2HFl
+	la4YWk98LxeWsMCADzsYCZbYNsmZcl5m+/k7xyJe9WkY3w0l26LIOuH07jKMEeA1/F7K2V
+	6INOjsohbxOq2eK7+Yt7yM1K1urS/3Yinl/YSoKQ9WsTJ8usPPGfVJJyNzfOMWkxpsZt0u
+	S7Uv1LXbUp1z8AAQzY9c6hvOiHX3cUeQ0fkrstQPXunUwVxkAQAZDTz50LBZTg==
+ARC-Authentication-Results: i=1;
+	relay.mimecast.com;
+	dkim=pass header.d=marketing-graingerplc.co.uk header.s=50dkim1 header.b="pYE/xdBb";
+	dmarc=pass (policy=reject) header.from=marketing-graingerplc.co.uk;
+	spf=pass (relay.mimecast.com: domain of bounce-14503_html-534462088-434339-500009706-1@bounce.marketing-graingerplc.co.uk designates 161.71.70.47 as permitted sender) smtp.mailfrom=bounce-14503_html-534462088-434339-500009706-1@bounce.marketing-graingerplc.co.uk
+Authentication-Results-Original: relay.mimecast.com;	dkim=pass
+ header.d=marketing-graingerplc.co.uk header.s=50dkim1 header.b="pYE/xdBb";
+	dmarc=pass (policy=reject) header.from=marketing-graingerplc.co.uk;	spf=pass
+ (relay.mimecast.com: domain of
+ bounce-14503_html-534462088-434339-500009706-1@bounce.marketing-graingerplc.co.uk
+ designates 161.71.70.47 as permitted sender)
+ smtp.mailfrom=bounce-14503_html-534462088-434339-500009706-1@bounce.marketing-graingerplc.co.uk
+Received: from mta.marketing-graingerplc.co.uk
+ (mta.marketing-graingerplc.co.uk [161.71.70.47]) by relay.mimecast.com with
+ ESMTP with STARTTLS (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ za-mta-104-yVV7sa_8OLuKmDQcRpS81w-1; Tue, 13 Aug 2024 11:02:03 +0200
+X-MC-Unique: yVV7sa_8OLuKmDQcRpS81w-1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=50dkim1; d=marketing-graingerplc.co.uk;
+ h=From:To:Subject:Date:List-Unsubscribe:List-Unsubscribe-Post:MIME-Version:
+ Reply-To:List-ID:Message-ID:Content-Type;
+ i=grainger@marketing-graingerplc.co.uk;
+ bh=L8yB3NBVwuN9J6/zYcLJiKzWRGwau3cmKvziQDMP9lc=;
+ b=pYE/xdBbp8N+gbHpjfA/KDYdY18o5oafNYmfWi+IA8B+9TJh/Smlr696Ub47MEBj1KC6120lyogN
+   0W++BXjayvRUe6jqGB75PclH40FyhssQqiOa5ziG13w8jJ1HHV4Q9axuFQkM5DFBwH0bOxcyE9mo
+   H7dN4jpWKzMM9CD+p6vz6ikrn3GnEO2i38u8LC7Z+oEknS+9dS/0sCp/mBDQrNlb5Jt2XWTP/uqH
+   yvRE7k7/PjUZpjoXIcubCZew+OXGvnCcUHgFophtbzv7zwPZHFA8l62MecjbXoUGcCpLPdVyIWxY
+   no2xZyYq1+zeAGQRZq+O5W6GUge+HiKaQqTS5A==
+Received: by mta.marketing-graingerplc.co.uk id hncggm2fmd4e for <sduncan+prod.gdpr.contact@openboxsoftware.com>; Tue, 13 Aug 2024 09:02:00 +0000 (envelope-from <bounce-14503_HTML-534462088-434339-500009706-1@bounce.marketing-graingerplc.co.uk>)
+From: "Grainger PLC" <grainger@marketing-graingerplc.co.uk>
+To: <sduncan+prod.gdpr.contact@openboxsoftware.com>
+Subject: GDPR Test, do you still want to hear from us?
+Date: Tue, 13 Aug 2024 03:02:00 -0600
+List-Unsubscribe: <https://click.marketing-graingerplc.co.uk/subscription_center.aspx?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtaWQiOiI1MDAwMDk3MDYiLCJzIjoiNTM0NDYyMDg4IiwibGlkIjoiMTQ1MDMiLCJqIjoiNDM0MzM5IiwiamIiOiIxIiwiZCI6IjUwMDAxMyJ9.pPnPDgED4UFYfoo7qAFosAsKSdAws38gJcCrzyuYnhg>, <mailto:leave-fcee1574706407122d502d29-fe2711737160027f751c78-fec5107371670774-fe34117075640474721476-ffce15@leave.marketing-graingerplc.co.uk>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Reply-To: "Grainger PLC" <reply-fec5107371670774-14503_HTML-534462088-500009706-1@marketing-graingerplc.co.uk>
+List-ID: <500009706.xt.local>
+X-SFMC-Stack: 50
+x-job: 500009706_434339
+Message-ID: <1f93db76-6ce1-4dd2-8238-9bc4ef031c20@fra3s50mta346.xt.local>
+X-Mimecast-Spam-Score: 1
+Content-Type: multipart/alternative;
+	boundary="YdFJthJqQWYn=_?:"
+Return-Path:
+ bounce-14503_html-534462088-434339-500009706-1@bounce.marketing-graingerplc.co.uk
+X-MS-Exchange-Organization-ExpirationStartTime: 13 Aug 2024 09:02:10.3837
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ c45c6224-6812-447e-22ac-08dcbb769d91
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: bd82620c-6975-47c3-9533-ab6b5493ada3:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ AM2PEPF0001C711:EE_|PA2PR04MB10446:EE_|PA4PR04MB9462:EE_
+X-MS-Exchange-Organization-AuthSource:
+ AM2PEPF0001C711.eurprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: c45c6224-6812-447e-22ac-08dcbb769d91
+X-MS-Exchange-Organization-SCL: -1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|4022899009|29132699027|69100299015;
+X-Forefront-Antispam-Report:
+ CIP:41.74.197.102;CTRY:ZA;LANG:en;SCL:-1;SRV:;IPV:CAL;SFV:SKN;H:za-smtp-inbound-delivery-1.mimecast.co.za;PTR:za-smtp-delivery-1.mimecast.co.za;CAT:NONE;SFS:(13230040)(4022899009)(29132699027)(69100299015);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2024 09:02:09.6649
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c45c6224-6812-447e-22ac-08dcbb769d91
+X-MS-Exchange-CrossTenant-Id: bd82620c-6975-47c3-9533-ab6b5493ada3
+X-MS-Exchange-CrossTenant-AuthSource:
+ AM2PEPF0001C711.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10446
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.6996514
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7849.015
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?Q25vTmlscVBXdkliMzRQaHk3eWtFUzlxRzBCbTNFN1czUmFqUVA3cy8rVjkx?=
+ =?utf-8?B?UFZTeUQ4OE5HUUJHQ1BXZ2JpNUN5MHJUZkdhaUYrOC8zTHRucjhqWGdLVG5s?=
+ =?utf-8?B?ZGw3cmgzbmtiQ1hzd1ZBRGRnZGtXTjNiaVk5SDJUSTk0VUJPbUJxTHZEbjJ0?=
+ =?utf-8?B?VHRHU0xEcTV4Wlk4aHFJb0Qzb1J6YWNxM1pzL2RDdDExc003MjlvWTJLK2Fi?=
+ =?utf-8?B?YURRamxRcUdRZG95MkJTZFJCUm45SkFaSEE0SmRoZVlIRUpFRzhJN1BHYUhq?=
+ =?utf-8?B?VlVyeXliUnVUQjRjU0JTVlA2NEkzeTZReFBUVlhFd2lyZ2hIWFJwVEhPbENH?=
+ =?utf-8?B?ZHorVTBzOW5lODl3dWYrOUNicDQyTm90UkNsdXd3RTVkTHU0OVF3NklQdk9I?=
+ =?utf-8?B?QlllZEcyYjNIVjV1eDBwNE1Yc2JPK2Z4Y1pPMFRpZlRpV3VDeU5LQVl6MjRz?=
+ =?utf-8?B?NUJQMXpEZXRQeWlWZm5zb09FUFNvNVM5VEw5QTJQSzZmWGY1S3dEOGtnL3c0?=
+ =?utf-8?B?ZWxqUkdvR3Ewck5sY1Q3eWVrMW81MGo4QTNhN05oWG9nZ21xVjZwRGFjYUVo?=
+ =?utf-8?B?TFkyaisvRjlpMXhBU2hZb0o5S2tMd0s2cDZkSWJjSzVMYmkrTDFiZDRNQm1X?=
+ =?utf-8?B?TVBNNmE2N2Z0VUtWRGZrZyszOFppSlhWN3JrUUtxOWFpZlQ3eUtRVWxMK2Fu?=
+ =?utf-8?B?WktYc0NHckpwVG5lNVNPYXFoM1ozYjM0Wmk0QzlmdjhhRnQvc2FNS1BhSmZo?=
+ =?utf-8?B?MlVBZWNueVZPd3VGVk5SUmkzeEg0YzFJcVJvd05hcVJMYnYrRlkyenE5YUg1?=
+ =?utf-8?B?TzVxeUJ5MlR5a2JmekJBaXZBMzZUYWl1b01FNzN3UExXa2dnaU9YaCtSdDU3?=
+ =?utf-8?B?bThJVWR2alRCaCtGZFRTWFNDeTF0bU5OWis5VGVudmdTUW9RLzVsaTAyblZa?=
+ =?utf-8?B?elphdCtOUVhPczkyeFdvd3pvZklCNVlOLzVYWGFPcG9RcGl2U3hZQXEvMzdV?=
+ =?utf-8?B?QXFnUWRPc1BDaGIyVWNVSlZMeWlEOUNBM1RQWGl3UmhoK2trRkE2T3ZKT0RR?=
+ =?utf-8?B?QjBCZEU0MXFzMWtLOFpkQVFXcHVaaTNxNGtBZ0Y0Q1VOUTUvS1ZKYTZMRDlv?=
+ =?utf-8?B?RmdDMm9DUzlNM0IrRlY4aWZoYlc2YlVJZTBsdUY5Z3NtazBPZk1YMzk2U213?=
+ =?utf-8?B?UmFXN3owRzZrQjN3ZmhRMXVKd1hrd01sK201K25yMzJ2c2N4bEw0TUF2U0ZV?=
+ =?utf-8?B?MzBTa09WTlp4V3F1ay9vWXJReitmRXNYR0dWaHJvbXB6NzZ2MTNqZzJrUTU3?=
+ =?utf-8?B?YTY0TkV0SVpYU1d5cEhBK01Qd1BqcWRsbXh1WmFxR1Q2R2grSWNPVXJUMi9F?=
+ =?utf-8?B?RWZtVlp3RFpxZDB2WGUrVFc1YnVxNUxMZ0VEQVhBYVN3amNLdkJ6WVIvSDly?=
+ =?utf-8?B?UXhWTTNDMGZvL28zWGJYWnA1UU9VN3o5UDdqUFZTcWQ1TW1nRFd1djJwZ2Rv?=
+ =?utf-8?B?bjE1S0hrTllIcE5xc2pQTnRWVjkrMW9ZbURQSlVCRHpselk2dmVHdjJjT0pr?=
+ =?utf-8?B?alhSWWtEQXo1V1VzQzFnK3dwdjgvVzZWNklWdDZxb2k5cFRKWkRIQ1liVVJa?=
+ =?utf-8?B?MytxTit2V2RRZFFsOGhRTTVmSnRMdnZBeklzaUpkbWZLMHB1R1hxU296bkk3?=
+ =?utf-8?B?aU53cUxlVkppS1oyVkpqSmUxS1dKOVA1VFRSb3NsQkpqVjhxNjEycWFkdlFR?=
+ =?utf-8?B?TUZsZVRyeXZwUDZUa1MwV0xBR0liNUU4SVZvR1FmL2RjWjh0dm1Ub2NMUVBn?=
+ =?utf-8?B?SDdKNmJ0SHZIY2hZTldRdlRHcEJMRE1qTTIyVFdBc084M1k3d0g2Y01MMXU5?=
+ =?utf-8?B?VGJhSFUxdE52eFk1SGM0UjZ4czAwMkIyclRJWmhHaUt6VTlIcVgyenF0K2hS?=
+ =?utf-8?B?dWpKZHhjS2JCdHZ4Y09hUHlPUHRkVnJCbVNqTWdNaEQrMEFnbkVpa2pmZEJx?=
+ =?utf-8?B?a21pdFJhb0dFMjZFbmpGeDRHQXJjZk9uM1dVdVlBNGxzRjVGYSs5NlB6RHlv?=
+ =?utf-8?B?bE5ZNXpjY3prTFFnN1huSUNFNkpoNG5CUEpITEtjU2ZKemphNWhlTWRrQlQ4?=
+ =?utf-8?B?akpnTnQyK1VjbGt3Y0R5TTR1cmVxUVRnaXNEYXVaQXNIRnYvTk9yTFkvaFBo?=
+ =?utf-8?B?M0hTUEVEYi9VeWxMY0pVSUlGZmRXbEdyTHJndUdWa244d0MwRnBBdE45bTBF?=
+ =?utf-8?B?WEdmTTg3WlRSQ0tiYXJkRE1RNzJlZHRoVkxnS0ZNejEyWmppZm85eFR6NWVy?=
+ =?utf-8?B?TkNBUVhYdi9DWTBGM1BRL2tpWkpMVVV1UkZkdzQ4eU9EVi9SYm03aVBQZW1O?=
+ =?utf-8?B?c1A3SW9IdXdzSCtwb3hoWlhPYjJhUXdUVExGY0NYM01iR3FwcFpZdXZYUEhT?=
+ =?utf-8?B?M0xCcEpGWkJMUnI1U1A2RnFGVEMvY3JxZFdTNjdrbTlWQTAzRGpoMk5Pdlho?=
+ =?utf-8?B?blFQcHh3NGlJUVEwL0FmMFVRZEovYWRBc3dWZGNSRnhxSDBrR1NOTU1PWXc4?=
+ =?utf-8?B?MFNTbHhjNGh0WFB5bFljdTMxTmIzMUtXZ0p3YWwyTGdKSEhIVnpnTEhqTERr?=
+ =?utf-8?B?a3F3K1JQYks3N2tCVUZncWFMdGtkSldxK3lBbzVtQlFNaTVaZDB4dmVPaWt6?=
+ =?utf-8?B?Vy9mdmlPQ0pBTFJrS1dpNlNiN0FaM1RlRnhDSnRaRGdOSmVrZmtwK3dubmdN?=
+ =?utf-8?B?eHh1T2FyU0pmSzA1cmF2UGs1cTNucG4rNlB3bGtpR3YzdmsvcHUvMjNFci9n?=
+ =?utf-8?B?PT0=?=
+MIME-Version: 1.0
+
+--YdFJthJqQWYn=_?:
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+
+ To view this email as a web page, go to the link below, or copy and paste =
+it into your browser's address window.
+https://url.za.m.mimecastprotect.com/s/eIzxC1jpqVspvDqYUAKYnC
+=20
+
+=20
+Hi GDPR Test,=20
+
+
+We are reaching out because you previously enquired about renting a propert=
+y with Grainger PLC. To keep our records up-to-date, we would like to confi=
+rm if you wish to remain on our database and stay updated on rental opportu=
+nities, Grainger news, offers, and tips.
+
+
+If you wish to continue receiving our communications, please click the opt-=
+in button below:
+
+
+https://url.za.m.mimecastprotect.com/s/qGK1C2RqrGhknJ8wCp0405=20
+I would like to opt in=20
+
+
+We&rsquo;ll keep you in our database for 14 more days. If we don&rsquo;t he=
+ar from you, we&rsquo;ll assume you prefer to be removed.
+
+
+Best regards,
+The Grainger Team
+
+
+=20
+=20
+
+
+ ----------------------------------------
+=09
+=09This email was sent by:
+=09Grainger PLC
+=09Citygate St James' Boulevard
+=09Newcastle upon Tyne, Tyne and Wear, NE1 4JE, GB
+=09
+=09We respect your right to privacy - visit the following URL to view our p=
+olicy.
+=09( https://url.za.m.mimecastprotect.com/s/GObtC3lrvYFmLJ2QS9Yj33 )
+=09
+=09----------------------------------------
+=09
+=09Visit the following URL to manage your subscriptions.
+=09( https://url.za.m.mimecastprotect.com/s/3rJdC48vwWcJLQl1FoBB5L )
+=09
+=09Visit the following URL to update your profile.
+=09( https://url.za.m.mimecastprotect.com/s/nfrzC58wxAc0qQ6GfwxHJS )
+=09
+=09Visit the following URL to unsubscribe.
+=09( https://url.za.m.mimecastprotect.com/s/IW_IC66xyYIoQAyKfNMGe6 )
+=09
+=20
+
+
+--YdFJthJqQWYn=_?:
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.=
+w3.org/TR/html4/loose.dtd"><html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><m=
+eta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1, m=
+aximum-scale=3D1, user-scalable=3D0">
+   =20
+    <style type=3D"text/css">
+      ReadMsgBody{ width: 100%;}
+      .ExternalClass {width: 100%;}
+      .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass=
+ font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+      body {-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;margin=
+:0 !important;}
+      p { margin: 1em 0;}
+      table td { border-collapse: collapse;}
+      img {outline:0;}
+      a img {border:none;}
+      @-ms-viewport{ width: device-width;}
+    </style>
+    <style type=3D"text/css">
+      @media only screen and (max-width: 480px) {
+        .container {width: 100% !important;}
+        .footer { width:auto !important; margin-left:0; }
+        .mobile-hidden { display:none !important; }
+        .logo { display:block !important; padding:0 !important; }
+        img { max-width:100% !important; height:auto !important; max-height=
+:auto !important;}
+        .header img{max-width:100% !important;height:auto !important; max-h=
+eight:auto !important;}
+        .photo img { width:100% !important; max-width:100% !important; heig=
+ht:auto !important;}
+        .drop { display:block !important; width: 100% !important; float:lef=
+t; clear:both;}
+        .footerlogo { display:block !important; width: 100% !important; pad=
+ding-top:15px; float:left; clear:both;}
+        .nav4, .nav5, .nav6 { display: none !important; }
+        .tableBlock {width:100% !important;}
+        .responsive-td {width:100% !important; display:block !important; pa=
+dding:0 !important; }
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        /* MOBILE GLOBAL STYLES - DO NOT CHANGE */
+body, .tb_properties{font-family: Arial !important; font-size: 20px !import=
+ant; color: #65BCAC !important; line-height: 1.5 !important; padding: 0px !=
+important; }.buttonstyles{font-family: Arial, helvetica, sans-serif !import=
+ant; font-size: 16px !important; color: #FFFFFF !important; padding: 10px !=
+important; }h1{font-family: Arial !important; font-size: 28px !important; c=
+olor: #E16B30 !important; line-height: 1 !important; }h2{font-family: Arial=
+ !important; font-size: 22px !important; color: #FFFFFF !important; line-he=
+ight: 1 !important; }h3{font-family: Arial !important; font-size: 20px !imp=
+ortant; color: #004665 !important; line-height: 1 !important; }a:not(.butto=
+nstyles){line-height: 1 !important; }.mobile-hidden{display: none !importan=
+t; }.responsive-td {width: 100% !important;
+ display: block !important; padding: 0 !important;}
+/* END OF MOBILE GLOBAL STYLES - DO NOT CHANGE */
+      }
+      @media only screen and (max-width: 640px) {
+        .container { width:100% !important; }
+        .mobile-hidden { display:none !important; }
+        .logo { display:block !important; padding:0 !important; }
+        .photo img { width:100% !important; height:auto !important;}
+        .nav5, .nav6 { display: none !important;}
+        .fluid, .fluid-centered {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .fluid-centered {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+      }
+    </style>
+    <!--[if mso]>       <style type=3D"text/css">           /* Begin Outloo=
+k Font Fix */               body, table, td {                  font-family =
+: Arial, helvetica, sans-serif;                  line-height : 100%;       =
+           font-size : 16px;                  color : #65BCAC;             =
+  }           /* End Outlook Font Fix */       </style>     <![endif]-->
+  </head>
+  <body bgcolor=3D"#E4E4E4" text=3D"#000000" style=3D"-webkit-text-size-adj=
+ust:none;background-color : #E4E4E4; font-family : Arial, helvetica, sans-s=
+erif; line-height : 100%; font-size : 16px; color : #65BCAC; padding : 0px;=
+ "><style type=3D"text/css">
+div.preheader=20
+{ display: none !important; }=20
+</style>
+<div class=3D"preheader" style=3D"font-size: 1px; display: none !important;=
+">Let us know if you would like us to stay in touch.</div>
+    <div style=3D"font-size:0; line-height:0;"><img src=3D"https://click.ma=
+rketing-graingerplc.co.uk/open.aspx?ffcb10-fec5107371670774-fe3616707660007=
+e701474-fe34117075640474721476-ff021574706407-fe2711737160027f751c78-ffce15=
+&amp;d=3D500013&amp;bmt=3D0" width=3D"1" height=3D"1" alt=3D""></div>
+    <table width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+align=3D"center">
+      <tr>
+        <td align=3D"center" valign=3D"top">
+          <div style=3D"margin:18px 0;"><!--   To view this email as a web =
+page, click on the link below,  or copy and paste it into your browser's ad=
+dress window.  <a href=3D"https://url.za.m.mimecastprotect.com/s/nhDXCO7XkJ=
+CAq9vKtEASp6">https://view.marketing-graingerplc.co.uk/?vawpToken=3DBLFQBF5=
+RGNZUVHZQBCBZTPDXF4.500013</a>  .//-->
+<font face=3D"verdana" size=3D"1" color=3D"#444444">To view this email as a=
+ web page, go <a href=3D"https://url.za.m.mimecastprotect.com/s/Wm9HCP1Kl6C=
+4yr3xT0Fr1e">here.</a></font></div>
+        </td>
+      </tr>
+      <tr>
+        <td align=3D"center">
+          <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"=
+600" class=3D"container" align=3D"center">
+            <tr>
+              <td>
+                <table class=3D"tb_properties border_style" style=3D"font-s=
+ize : 16px; font-family : Arial, helvetica, sans-serif; color : #65BCAC;bac=
+kground-color : #FFFFFF; border : 15px solid #FFFFFF; line-height : 100%; "=
+ cellspacing=3D"0" cellpadding=3D"0" bgcolor=3D"#FFFFFF" width=3D"100%">
+                  <tr>
+                    <td align=3D"center" valign=3D"top">
+                      <table align=3D"left" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" width=3D"100%">
+                        <tr>
+                          <!-- added padding here -->
+                          <td class=3D"content_padding" style=3D"padding : =
+0px; ">
+                            <!-- end of comment -->
+                            <table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"100%">
+                              <tr> <!-- top slot -->
+                                <td align=3D"center" class=3D"header" valig=
+n=3D"top">
+                                  <table align=3D"left" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" width=3D"100%">
+                                    <tbody>
+                                        <tr>
+                                          <td align=3D"left" valign=3D"top"=
+>
+                                            <table cellspacing=3D"0" cellpa=
+dding=3D"0" style=3D"width:100%">
+                                              <tbody>
+                                              <tr>
+                                                <td class=3D"responsive-td"=
+ valign=3D"top" style=3D"width: 100%;">
+                                                  <table cellpadding=3D"0" =
+cellspacing=3D"0" width=3D"100%" role=3D"presentation" style=3D"min-width: =
+100%; " class=3D"stylingblock-content-wrapper"><tr><td class=3D"stylingbloc=
+k-content-wrapper camarker-inner"><table width=3D"100%" cellspacing=3D"0" c=
+ellpadding=3D"0" role=3D"presentation"><tr><td align=3D"center"><img data-a=
+ssetid=3D"197682" src=3D"https://image.marketing-graingerplc.co.uk/lib/fe34=
+117075640474721476/m/1/61b1bb5a-b6fa-4f29-8065-316f2ade4da5.jpg" alt=3D"" w=
+idth=3D"600" style=3D"display: block; padding: 0px; text-align: center; hei=
+ght: auto; width: 100%; border: 0px;"></td></tr></table></td></tr></table><=
+table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentati=
+on" style=3D"background-color: transparent; min-width: 100%; " class=3D"sty=
+lingblock-content-wrapper"><tr><td style=3D"padding: 10px 40px; " class=3D"=
+stylingblock-content-wrapper camarker-inner"><p style=3D"line-height: 150%;=
+">
+	<font color=3D"#333333" face=3D"Arial, Helvetica, sans-serif">Hi </font><s=
+pan style=3D"color:#000000;">GDPR Test</span><font color=3D"#333333" face=
+=3D"Arial, Helvetica, sans-serif">,&nbsp;<br>
+	<br>
+	We are reaching out because you previously enquired about renting a proper=
+ty with Grainger PLC. To keep our records up-to-date, we would like to conf=
+irm if you wish to remain on our database and stay updated on rental opport=
+unities, Grainger news, offers, and tips.<br>
+	<br>
+	If you wish to continue receiving our communications, please click the opt=
+-in button below:</font></p></td></tr></table><table cellpadding=3D"0" cell=
+spacing=3D"0" width=3D"100%" role=3D"presentation" class=3D"stylingblock-co=
+ntent-wrapper" style=3D"min-width: 100%; "><tr><td class=3D"stylingblock-co=
+ntent-margin-cell" style=3D"padding: 20px; "><table cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%" role=3D"presentation" style=3D"background-color=
+: transparent; min-width: 100%; " class=3D"stylingblock-content-wrapper"><t=
+r><td style=3D"padding: 0px; " class=3D"stylingblock-content-wrapper camark=
+er-inner"><table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" role=3D"presentation"><tr><td align=3D"center"><table border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0" role=3D"presentation"><tr>
+<td class=3D"innertd buttonblock" bgcolor=3D"#25646A" style=3D" border-radi=
+us: 24px; -moz-border-radius: 24px; -webkit-border-radius: 24px; background=
+-color: #25646A;"><a target=3D"_blank" class=3D"buttonstyles" style=3D" fon=
+t-size: 18px; font-family: Arial, Helvetica, sans-serif; color: #FFFFFF; te=
+xt-align: center; text-decoration: none; display: block; background-color: =
+#25646A; border: 0px solid #000000; padding: 7px 30px; border-radius: 24px;=
+ -moz-border-radius: 24px; -webkit-border-radius: 24px;" href=3D"https://ur=
+l.za.m.mimecastprotect.com/s/3prOCQ1KmAC6zEoWSMpJRa" title=3D"" data-linkto=
+=3D"cloudpageslandingpage">I would like to opt in</a></td></tr></table></td=
+></tr></table></td></tr></table></td></tr></table>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentat=
+ion" style=3D"background-color: transparent; min-width: 100%; " class=3D"st=
+ylingblock-content-wrapper"><tr><td style=3D"padding: 10px 40px; " class=3D=
+"stylingblock-content-wrapper camarker-inner"><p style=3D"line-height: 150%=
+;">
+	<font color=3D"#333333" face=3D"Arial, Helvetica, sans-serif">We=E2=80=99l=
+l keep you in our database for 14 more days. If we don=E2=80=99t hear from =
+you, we=E2=80=99ll assume you prefer to be removed.<br>
+	<br>
+	Best regards,<br>
+	<b>The Grainger Team</b></font></p></td></tr></table><table cellpadding=3D=
+"0" cellspacing=3D"0" width=3D"100%" role=3D"presentation" style=3D"min-wid=
+th: 100%; " class=3D"stylingblock-content-wrapper"><tr><td class=3D"styling=
+block-content-wrapper camarker-inner"><table width=3D"100%" cellspacing=3D"=
+0" cellpadding=3D"0" role=3D"presentation"><tr><td align=3D"center"><img da=
+ta-assetid=3D"219344" src=3D"https://image.marketing-graingerplc.co.uk/lib/=
+fe34117075640474721476/m/1/dc23db54-c916-437b-a1f9-66e523d603e4.jpg" alt=3D=
+"" width=3D"600" style=3D"display: block; padding: 0px; text-align: center;=
+ height: auto; width: 100%; border: 0px;"></td></tr></table></td></tr></tab=
+le>
+												 =20
+                                                </td>
+                                              </tr>
+                                              </tbody>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td valign=3D"top">
+          <div style=3D"text-align: center; padding-top:10px; padding-botto=
+m:10px;">
+ <span style=3D"font-size:12px;"><i>Grainger plc&nbsp;=C2=A9 2022, All righ=
+ts reserved.</i></span></div><table align=3D"center" border=3D"0" cellpaddi=
+ng=3D"10" cellspacing=3D"0" style=3D"width:400px;">
+=20
+  <tr>
+   <td style=3D"text-align: center;">
+    <span style=3D"font-size:12px;"><a data-linkto=3D"https://" href=3D"htt=
+ps://url.za.m.mimecastprotect.com/s/oxvwCRgKn8sr7k5LUOg2Hj" style=3D"text-d=
+ecoration:underline;" title=3D"Terms of Use ">Terms of Use</a></span></td><=
+td style=3D"text-align: center;">
+    <span style=3D"font-size:12px;"><a data-linkto=3D"https://" href=3D"htt=
+ps://url.za.m.mimecastprotect.com/s/3xa2CVm2rJslOLgAcQ5y11" style=3D"text-d=
+ecoration:underline;" title=3D"Privacy Policy ">Privacy Policy</a></span></=
+td><td style=3D"text-align: center;">
+    <span style=3D"font-size:12px;"><a data-linkto=3D"https://" href=3D"htt=
+ps://url.za.m.mimecastprotect.com/s/zMgRCWnKvWujlgDBSpf4q4" style=3D"text-d=
+ecoration:underline;" title=3D"Cookie Policy ">Cookie Policy</a></span></td=
+><td style=3D"text-align: center;">
+    <span style=3D"font-size:12px;"><a data-linkto=3D"https://" href=3D"htt=
+ps://url.za.m.mimecastprotect.com/s/pUqlCX6XwYInpyOYf7_9L-" style=3D"text-d=
+ecoration:underline;" title=3D"Accessibility">Accessibility</a></span></td>=
+</tr></table><div style=3D"text-align: center;">
+</div><div style=3D"text-align: center;">
+ <span style=3D"font-size:12px;">Grainger PLC registered in England. Compan=
+y registration number: 125575.<br>
+ <br>
+ Registered office: Citygate St James' Boulevard, Newcastle upon Tyne,<br>
+ Tyne and Wear, NE1 4JE GB<br>
+ <br>
+ Click here to <a href=3D"https://url.za.m.mimecastprotect.com/s/vnvFCY6YxV=
+I3GJAxfj8x6u" style=3D"font-size:12px; color: #959595; text-decoration: non=
+e; font-weight:bold;" target=3D"_blank">Unsubscribe</a> from this list or u=
+pdate your details <a href=3D"https://url.za.m.mimecastprotect.com/s/u1xsCZ=
+4GyZFMOVQNfM37iW" style=3D"font-size:12px; color: #959595; text-decoration:=
+ none; font-weight:bold;" target=3D"_blank">here</a><br>
+ <br>
+</span></div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+--YdFJthJqQWYn=_?:--

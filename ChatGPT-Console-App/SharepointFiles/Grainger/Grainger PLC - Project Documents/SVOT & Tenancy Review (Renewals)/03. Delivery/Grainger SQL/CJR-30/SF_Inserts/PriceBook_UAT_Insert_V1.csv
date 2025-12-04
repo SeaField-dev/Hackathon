@@ -1,0 +1,5 @@
+name,effective_date__c,type__c,isactive
+Price Book Rent Dec 2024,2024-12-01,Price Book Rent,TRUE
+Price Book Rent Jan 2025,2025-01-01,Price Book Rent,TRUE
+Price Book Rent Oct 2024,2024-10-01,Price Book Rent,TRUE
+Price Book Rent Nov 2024,2024-11-01,Price Book Rent,TRUE

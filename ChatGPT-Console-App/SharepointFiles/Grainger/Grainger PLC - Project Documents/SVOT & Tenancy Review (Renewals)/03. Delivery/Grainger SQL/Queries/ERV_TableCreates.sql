@@ -1,0 +1,59 @@
+-- Drop TABLE if exists tgt_PBE_March25;
+
+CREATE TABLE IF NOT EXISTS  tgt_PBE_March25(
+    Pricebook2Id VARCHAR(50),
+    Product2Id VARCHAR(50),
+    IsActive BOOLEAN, 
+    UnitPrice INTEGER,
+    Rent_Periodicity__c INTEGER
+);
+
+-- Drop TABLE if exists tgt_PBE_SEP24;
+CREATE TABLE IF NOT EXISTS  tgt_PBE_SEP24(
+    Pricebook2Id VARCHAR(50),
+    Product2Id VARCHAR(50),
+    IsActive BOOLEAN, 
+    UnitPrice INTEGER,
+    Rent_Periodicity__c INTEGER
+);
+
+-- Drop TABLE if exists stg_MARCH25;
+CREATE TABLE IF NOT EXISTS stg_MARCH25 (
+    Unit_id VARCHAR(50),
+    ERV NUMERIC(12, 2),
+    ERV_DATE DATE,
+    Qube_Unit_ID VARCHAR(50)
+);
+
+
+-- Drop TABLE if exists stg_SEP24;
+CREATE TABLE IF NOT EXISTS stg_SEP24
+(
+    Unit_id VARCHAR(50),
+    ERV NUMERIC(12, 2), 
+    ERV_DATE DATE,
+    Qube_Unit_ID VARCHAR(50)
+);
+
+-- Drop TABLE if exists stg_Units;
+CREATE TABLE IF NOT EXISTS stg_Units
+(
+	Id	VARCHAR(50),
+	PMS_Reference__c VARCHAR(50),
+	Product__c VARCHAR(50)
+
+);
+
+-- Drop TABLE if exists stg_Pricebooks;
+CREATE TABLE IF NOT EXISTS stg_Pricebooks
+(
+	Id	VARCHAR(50),
+	Name VARCHAR(50),
+	IsActive BOOLEAN, 
+	_IsStandard BOOLEAN, 
+	Type__c VARCHAR(50),
+	Effective_Date__c Date
+);
+
+
+

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+xmlns:html="http://www.w3.org/TR/REC-html40">
+<Worksheet ss:Name="Table1">
+	<Table>
+		<Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="7" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="8" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Row>
+			<Cell><Data ss:Type="String">id</Data></Cell>
+			<Cell><Data ss:Type="String">Timestamp</Data></Cell>
+			<Cell><Data ss:Type="String">Level</Data></Cell>
+			<Cell><Data ss:Type="String">Template</Data></Cell>
+			<Cell><Data ss:Type="String">Message</Data></Cell>
+			<Cell><Data ss:Type="String">Exception</Data></Cell>
+			<Cell><Data ss:Type="String">Properties</Data></Cell>
+			<Cell><Data ss:Type="String">_ts</Data></Cell>
+		</Row>
+
+		<Row>
+			<Cell><Data ss:Type="Number">83876</Data></Cell>
+			<Cell><Data ss:Type="String">2023-12-06 11:05:06.887+00:00</Data></Cell>
+			<Cell><Data ss:Type="String">Warning</Data></Cell>
+			<Cell><Data ss:Type="String">Agent: '{AgentCode}', Method: '{Method}', Request: '{Request}'.,Response: '{Response}'</Data></Cell>
+			<Cell><Data ss:Type="String">Agent: '"2023000961"', Method: '"CreateReferenceWithApplicantIframe"', Request: '"{\"AgentCode\":\"2023000961\",\"RentGuarantee\":4,\"TenancyTermMonths\":12,\"MonthlyRental\":1350.00,\"LettingType\":2,\"EstimatedMoveInDate\":\"2023-12-22T00:00:00\",\"PropertyType\":6,\"PropertyConstructionPeriod\":null,\"NumberOfBedrooms\":2,\"NoOfAdultOccupants\":1,\"NoOfChildOccupants\":null,\"IsAdvanceRent\":false,\"PropertyAddress\":{\"HouseNumber\":\"302 The Barnum\",\"HouseName\":\"\",\"AddressLine1\":\"23 Queens Road\",\"AddressLine2\":\"\",\"Town\":\"Nottingham\",\"Postcode\":\"NG2 3FL\",\"UkCountryCode\":1},\"ValidateIncome\":null,\"Tenants\":[{\"TenantTypeId\":1,\"ReferenceType\":1,\"RightToRent\":false,\"Title\":6,\"OtherTitle\":\"Please Specify\",\"FirstName\":\"Jimmy\",\"MiddleName\":\"\",\"Surname\":\"Woo\",\"ShareOfRent\":0.0,\"TelephoneCountryID\":2,\"ContactTelephoneNo\":\"04512598563\",\"EmailAddress\":\"jimmywoo@graingerplc.com\"}]}"'.,Response: '"{\"AgentCode\":\"2023000961\",\"PropertyTenancyId\":95802,\"ReferencingApplicantList\":[{\"UserId\":11862,\"ApplicantID\":686299,\"ApplicantName\":\"Please Specify Jimmy Woo\",\"emailAddress\":\"jimmywoo@graingerplc.com\"}]}"'</Data></Cell>
+			<Cell><Data ss:Type="String"></Data></Cell>
+			<Cell><Data ss:Type="String">{"AgentCode":"2023000961","Method":"CreateReferenceWithApplicantIframe","Request":"{\"AgentCode\":\"2023000961\",\"RentGuarantee\":4,\"TenancyTermMonths\":12,\"MonthlyRental\":1350.00,\"LettingType\":2,\"EstimatedMoveInDate\":\"2023-12-22T00:00:00\",\"PropertyType\":6,\"PropertyConstructionPeriod\":null,\"NumberOfBedrooms\":2,\"NoOfAdultOccupants\":1,\"NoOfChildOccupants\":null,\"IsAdvanceRent\":false,\"PropertyAddress\":{\"HouseNumber\":\"302 The Barnum\",\"HouseName\":\"\",\"AddressLine1\":\"23 Queens Road\",\"AddressLine2\":\"\",\"Town\":\"Nottingham\",\"Postcode\":\"NG2 3FL\",\"UkCountryCode\":1},\"ValidateIncome\":null,\"Tenants\":[{\"TenantTypeId\":1,\"ReferenceType\":1,\"RightToRent\":false,\"Title\":6,\"OtherTitle\":\"Please Specify\",\"FirstName\":\"Jimmy\",\"MiddleName\":\"\",\"Surname\":\"Woo\",\"ShareOfRent\":0.0,\"TelephoneCountryID\":2,\"ContactTelephoneNo\":\"04512598563\",\"EmailAddress\":\"jimmywoo@graingerplc.com\"}]}","Response":"{\"AgentCode\":\"2023000961\",\"PropertyTenancyId\":95802,\"ReferencingApplicantList\":[{\"UserId\":11862,\"ApplicantID\":686299,\"ApplicantName\":\"Please Specify Jimmy Woo\",\"emailAddress\":\"jimmywoo@graingerplc.com\"}]}","CorrelationId":"0HMVM7F0ND51O:00000001","UserId":0,"ActionId":"ba4be499-622d-4652-aec5-4016b836ead3","ActionName":"VisionPlusStandardAPI.Controllers.StandardApiController.CreateReferenceWithApplicantIframe (VisionPlusStandardAPI)","RequestId":"0HMVM7F0ND51O:00000001","RequestPath":"/api/v1/CreateReferenceWithApplicantIframe","ConnectionId":"0HMVM7F0ND51O","ThreadId":29}</Data></Cell>
+			<Cell><Data ss:Type="String">2023-12-06 11:05:10</Data></Cell>
+		</Row>	</Table>
+</Worksheet>
+</Workbook>

@@ -1,0 +1,6 @@
+"con_tran","tenant_reference","parent_reference","name","status","unit_reference","unit_status","unit_tenure","unit_type","tenancy_commenced","tenancy_terminates","tenant_info","tenant_type","salesforce_unit_id","start_date","end_date"
+"Sharer","127057198606","127057198007","Owen Almack","Current","127057198","Tenanted","Licence","ParkingSpac","2024-06-17",,"0038d000008w5RiAAI","Lead Tenant","a1G4J0000025x6ZUAQ","2025-05-24","2026-05-24"
+"Sharer","128009001601","128009001001","Shamina Akhter","Current","128009001","Tenanted","Grnd Rent","Mid Terrace","2003-10-24",,"003Nz00000bnVLYIA2","Lead Tenant","#N/A","1890-09-29","2889-09-28"
+"Sharer","222661033603","222661033002","Miss Anna  Simonds","Current","222661033","Tenanted","Licence","ParkingSpac","2022-08-10",,"0038d00000Eau7GAAR","Lead Tenant","a1G4J0000025yOQUAY","2025-05-24","2026-05-23"
+"Sharer","418621002602","418621002003","Miss Ruth  Arden","Current","418621002","Tenanted","AST","Flat Conv.","2020-11-20",,"0034J00000a4hFAQAY","Lead Tenant","a1G4J0000025zuNUAQ","2025-05-23","2026-11-22"
+"Sharer","418621002603","418621002003","Mr Thomas Paul Baverstock","Current","418621002","Tenanted","AST","Flat Conv.","2020-11-20",,"0034J00000a4h2hQAA","Tenant","a1G4J0000025zuNUAQ","2025-05-23","2026-11-22"

@@ -1,0 +1,4 @@
+"con_tran","tenant_reference","parent_reference","name","status","unit_reference","unit_status","unit_tenure","unit_type","tenancy_commenced","tenancy_terminates","tenant_info","tenant_type","salesforce_unit_id","start_date","end_date"
+"Sharer","122612001600","122612001007",NULL,"Current","122612001","Tenanted","AST","Town House","2024-11-29",NULL,NULL,"Lead Tenant","a1G4J0000025w5VUAQ",NULL,NULL
+"Sharer","122612001601","122612001007","Mr Sat Pal","Current","122612001","Tenanted","AST","Town House","2024-11-29",NULL,NULL,"Tenant","a1G4J0000025w5VUAQ",NULL,NULL
+"Sharer","122612001602","122612001007","Mrs Neeta Sharma","Current","122612001","Tenanted","AST","Town House","2024-11-29",NULL,NULL,"Tenant","a1G4J0000025w5VUAQ",NULL,NULL

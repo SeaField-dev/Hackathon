@@ -1,0 +1,7 @@
+"con_tran","tenant_reference","parent_reference","name","status","unit_reference","unit_status","unit_tenure","unit_type","tenancy_commenced","tenancy_terminates","tenant_info","tenant_type","salesforce_unit_id","start_date","end_date"
+"Sharer","105099033603","105099033004","Manpreet Kaur Cheema","Current","105099033","Tenanted","Grnd Rent","Flat PB","2019-07-17",NULL,"0034J00000a4aIoQAI",NULL,"a1G4J0000025uD0UAI","1986-03-25","2111-03-24"
+"Sharer","317353068601","317353068001","Mr Robert Millar","Current","317353068","Tenanted","Regulated","Flat PB","1988-10-31",NULL,"0034J00000a4OCBQA2","Tenant","a1G4J0000025z9gUAA",NULL,NULL
+"Sharer","317356105601","317356105003","Mr Robert Millar","Current","317356105","Tenanted","Licence","Shed","2012-09-17",NULL,"0034J00000a4OCBQA2",NULL,"a1G4J0000025z4SUAQ","2024-02-01","2025-01-31"
+"Sharer","317356106601","317356106002","Mr Robert Millar","Current","317356106","Tenanted","Licence","Shed","2008-10-06",NULL,"0034J00000a4OCBQA2",NULL,"a1G4J0000025z20UAA","2024-02-01","2025-01-31"
+"Sharer","317356110601","317356110002","Mr Robert Millar","Current","317356110","Tenanted","Licence","ParkingSpac","2006-08-21",NULL,"0034J00000a4OCBQA2",NULL,"a1G4J0000025zC6UAI","2024-04-01","2025-03-31"
+"Sharer","418578112260","418578112004","sarah palmer","Current","418578112","Tenanted","Licence","ParkingSpac","2025-03-01",NULL,"034J00000a4hT1QAI","Tenant","a1G4J0000026017UAA","2025-03-01","2026-02-28"
