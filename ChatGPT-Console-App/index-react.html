@@ -553,6 +553,7 @@
             };
 
             useEffect(() => {
+                handleNewChat();  // Start with a new chat on load
                 loadHistory();
             }, []);
 
@@ -630,8 +631,10 @@
                     setIsTyping(false);
                     setTypingText("");
 
+                    // Reload history after response completes
                     await loadHistory();
 
+                    // Set active chat if one was created
                     if (!activeChat) {
                         const res = await fetch(`${API_BASE}/history`);
                         const items = await res.json();
@@ -646,7 +649,6 @@
                     setTypingText("");
                 }
             };
-
             return (
                 <>
                     <Sidebar

@@ -5,6 +5,7 @@ from fastapi import FastAPI
 from fastapi.responses import StreamingResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from openai import OpenAI
+from fastapi.responses import FileResponse
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -28,7 +29,7 @@ current_chat_filename = None
 current_chat_title = None
 
 # Context thresholds for saving chat
-MIN_MESSAGES_FOR_TITLE = 2
+MIN_MESSAGES_FOR_TITLE = 1
 MIN_USER_CHARS = 40
 
 
@@ -184,3 +185,7 @@ def stream_chat_response(message: str):
 @app.get("/chat")
 async def chat(message: str):
     return StreamingResponse(stream_chat_response(message), media_type="text/plain")
+
+@app.get("/")
+def serve_frontend():
+    return FileResponse("index-react.html")
