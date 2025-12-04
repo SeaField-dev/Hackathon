@@ -2,10 +2,10 @@ import os
 import json
 from datetime import datetime
 from fastapi import FastAPI
-from fastapi.responses import StreamingResponse, JSONResponse
+from fastapi.responses import StreamingResponse, JSONResponse, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from openai import OpenAI
-from fastapi.responses import FileResponse
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -19,8 +19,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+@app.get("/favicon.ico")
+async def favicon():
+    favicon_path = os.path.join(os.path.dirname(__file__), "favicon.ico")
+    return FileResponse(favicon_path)
 
+app.mount("/icons", StaticFiles(directory="icons"), name="icons")
+    
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 HISTORY_DIR = "history"
 os.makedirs(HISTORY_DIR, exist_ok=True)
 

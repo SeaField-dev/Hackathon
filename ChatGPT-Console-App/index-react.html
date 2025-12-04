@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Local ChatGPT - React</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
@@ -36,6 +37,33 @@
             padding: 24px;
             overflow-y: auto;
             box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        #sidebar-content {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        #sidebar-logo {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        #sidebar-logo img {
+            width: 120px;
+            height: auto;
+            opacity: 0.8;
+            transition: opacity 0.2s ease;
+        }
+
+        #sidebar-logo img:hover {
+            opacity: 1;
         }
 
         #newBtn {
@@ -432,30 +460,34 @@
         function Sidebar({ history, activeChat, onNewChat, onLoadChat, onDeleteChat, onRenameChat }) {
             return (
                 <div id="sidebar">
-                    <button id="newBtn" onClick={onNewChat}>
-                        <span style={{fontSize: '20px'}}>&#43;</span> New Chat
-                    </button>                    
-                    <h3>Chat History</h3>
-                    <div>
-                        {history.length === 0 ? (
-                            <div>No chats</div>
-                        ) : (
-                            history.map((item) => (
-                                <HistoryItem
-                                    key={item.base}
-                                    item={item}
-                                    isActive={item.base === activeChat}
-                                    onLoad={onLoadChat}
-                                    onDelete={onDeleteChat}
-                                    onRename={onRenameChat}
-                                />
-                            ))
-                        )}
+                    <div id="sidebar-content">
+                        <button id="newBtn" onClick={onNewChat}>
+                            <span style={{fontSize: '20px'}}>&#43;</span> New Chat
+                        </button>                    
+                        <h3>Chat History</h3>
+                        <div>
+                            {history.length === 0 ? (
+                                <div>No chats</div>
+                            ) : (
+                                history.map((item) => (
+                                    <HistoryItem
+                                        key={item.base}
+                                        item={item}
+                                        isActive={item.base === activeChat}
+                                        onLoad={onLoadChat}
+                                        onDelete={onDeleteChat}
+                                        onRename={onRenameChat}
+                                    />
+                                ))
+                            )}
+                        </div>
+                    </div>
+                    <div id="sidebar-logo">
+                        <img src="/icons/openbox-logo.svg" alt="Open Box Software" />
                     </div>
                 </div>
             );
         }
-
         function ChatArea({ messages, isTyping, typingText }) {
             const chatRef = useRef(null);
 
