@@ -1,4 +1,10 @@
-openai>=1.0.0
-python-dotenv
 fastapi
 uvicorn
+python-dotenv
+openai
+pypdf
+numpy
+python-docx
+openpyxl
+pypdf
+pandas
