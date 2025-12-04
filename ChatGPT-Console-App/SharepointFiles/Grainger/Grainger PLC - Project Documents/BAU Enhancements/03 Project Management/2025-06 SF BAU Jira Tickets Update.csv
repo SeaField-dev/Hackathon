@@ -1,0 +1,101 @@
+﻿Issue Type,Issue key,Summary,Status,Parent key,Parent summary,Sprint,Release Month,Category
+Story,SFDC-569,Close future anonymised opportunities,Released,SFDC-433,BAU Enhancement,7,January,BAU
+Story,SFDC-568,Anonymise Opp Names with Anonymised Contacts,Released,SFDC-433,BAU Enhancement,7,January,BAU
+Story,SFDC-287,Building Page Layout Update,Released,SFDC-432,Audit - UX,7,January,BAU
+Story,SFDC-286,Block Page Layout Update,Released,SFDC-432,Audit - UX,7,January,BAU
+Story,SFDC-656,Create Operations User Perm Sets,Released,SFDC-431,RBAC,8,February,RBAC
+Story,SFDC-653,Create Resident Services/Portfolio Manager CRUD perm set,Released,SFDC-431,RBAC,8,February,RBAC
+Story,SFDC-652,Create Property Manager CRUD permset,Released,SFDC-431,RBAC,8,February,RBAC
+Story,SFDC-650,Create Operations CRUD perm Set,Released,SFDC-431,RBAC,8,February,RBAC
+Story,SFDC-648,Residential Senior Lettings CRUD perm set,Released,SFDC-431,RBAC,8,February,RBAC
+Story,SFDC-647,Resi Lettings Manager CRUD perm set,Released,SFDC-431,RBAC,8,February,RBAC
+Story,SFDC-644,Unit - Add 'Notes' back to page layout,Released,SFDC-433,BAU Enhancement,8,February,BAU
+Story,SFDC-641,Lead - Waitlist Out Reasons,Released,SFDC-433,BAU Enhancement,8,February,BAU
+Story,SFDC-632,Update PS_Residential_Lettings_CRUD,Released,SFDC-431,RBAC,8,February,RBAC
+Story,SFDC-456,PRS Team Permission Set Group,Released,SFDC-431,RBAC,8,February,RBAC
+Story,SFDC-455,Head of PRS Permission Set Group,Released,SFDC-431,RBAC,8,February,RBAC
+Story,SFDC-454,Resident Services Team Permission Set Group,Released,SFDC-431,RBAC,8,February,RBAC
+Story,SFDC-453,Head of Resident Services Permission Set Group,Released,SFDC-431,RBAC,8,February,RBAC
+Story,SFDC-712,Update All Resi Lettings CRUD perm sets,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-705,Create Property Sales Permissions,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-702,Property Sales User Permission Set Group,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-701,Update Residential Leasing User PS,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-699,Add Touchpoint Survey Read PS to Ops PSGs,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-693,Create PS_Credit_Control_CRUD permission Set,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-692,Update Operations PSGs with new Perm Sets (New Strategy Allignment),Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-689,Identify 'Under Other Contract' Blocks,Released,SFDC-433,BAU Enhancement,9,March,BAU
+Story,SFDC-682,System Support Permission Set Group,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-681,PS_Customer_Service_Advisor_CRUD update,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-679,PS_Tenancy_Progression_CRUD update,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-651,Add Custom Permission to Lettings Users Permissions PS,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-649,Customer Service Associate CRUD perm set,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-639,Create Renewal Manager User Permissions perm set,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-638,Create Renewal Neg User Permissions Permset,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-636,Update PS Renewals CRUD,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-635,Create Renewal Admin User Permissions Permission Set,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-634,Create Tenancy Progression Manager User Permissions permset,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-630,Create Tenancy Progression User Permissions permset,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-629,Update PS Tenancy Progression CRUD,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-628,GEN - Property Read perm set,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-627,Create Gen Contracts R permission Set,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-626,GEN - Lead R Perm Set,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-625,GEN - Contact R Perm Set,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-624,GEN - Account R Perm Set,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-600,Create GEN - OpportunityOffer R Permission Set,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-583,Update Default Grainger Profile - Unit,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-563,Conga Composer Permissions,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-458,Credit Control Team Permission Set Group,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-392,TPT User Permission Set Group,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-391,TPT Manager Permission Set Group,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-412,Renewal Administrator Permission Set Group,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-411,Renewal Negotiator Permission Set Group,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-421,Renewal Manager Permission Set Group,Released,SFDC-431,RBAC,9,March,RBAC
+Story,SFDC-760,Update Renewals CRUD permset,Released,SFDC-431,RBAC,10,April,RBAC
+Story,SFDC-749,Update PS_Renewals_CRUD Perm Set,Released,SFDC-431,RBAC,10,April,RBAC
+Story,SFDC-743,Update PS_Renewals_CRUD perm set,Released,SFDC-431,RBAC,10,April,RBAC
+Story,SFDC-742,Update Residential Leasing User permset,Released,SFDC-431,RBAC,10,April,RBAC
+Story,SFDC-741,Update PS_Residential_Lettings_CRUD,Released,SFDC-431,RBAC,10,April,RBAC
+Story,SFDC-735,Update GEN_Contracts_Read Permission Set,Released,SFDC-431,RBAC,10,April,RBAC
+Story,SFDC-732,PS_Payment_Creation,Released,SFDC-431,RBAC,10,April,RBAC
+Story,SFDC-698,Prevent Agreements from Expiring,Released,SFDC-433,BAU Enhancement,10,April,BAU
+Story,SFDC-724,Rent not reflecting on initial summary email,Released,SFDC-433,BAU Enhancement,10,April,BAU
+Story,SFDC-721,Make PMS reference on Opp Searchable,Released,SFDC-433,BAU Enhancement,10,April,BAU
+Story,SFDC-720,Use Type Picklist Values,Released,SFDC-433,BAU Enhancement,10,April,BAU
+Story,SFDC-723,Remove Lease Completion Statement Validation,Released,SFDC-433,BAU Enhancement,10,April,BAU
+Story,SFDC-678,Delete Commercial Leasing User and Commercial Lettings Team Permissions permission sets,Released,SFDC-431,RBAC,10,April,RBAC
+Story,SFDC-722,Rename 'Move In Date' field,Released,SFDC-433,BAU Enhancement,10,April,BAU
+Story,SFDC-719,Update AFL Details on Opportunity,Released,SFDC-433,BAU Enhancement,10,April,BAU
+Story,SFDC-765,Waitlist Op Conversion Flow,Done,SFDC-433,Waitlist Opps,11,May,Mini Project
+Story,SFDC-609,Assign Record Type access,Done,SFDC-433,Waitlist Opps,11,May,Mini Project
+Story,SFDC-594,Button to flip opportunity,Done,SFDC-433,Waitlist Opps,11,May,Mini Project
+Story,SFDC-589,Create 'Waitlist' Record Type on Opp,Done,SFDC-433,Waitlist Opps,11,May,Mini Project
+Story,SFDC-795,Update PS_GEN_Contracts_Read,Released,SFDC-431,RBAC,11,May,RBAC
+Story,SFDC-770,Add Create Reports and Dashboards PS to Lettings Manager PSG,Released,SFDC-431,RBAC,11,May,RBAC
+Story,SFDC-764,Update 'Closed Won Monthly Price' Opportunity Validation Rule,Released,SFDC-433,BAU Enhancement,11,May,BAU
+Story,SFDC-763,Update Residential Opportunity Lightning Record Page,Released,SFDC-432,Audit - UX,11,May,BAU
+Story,SFDC-762,Allow NHA for Welsh Properties,Released,SFDC-433,BAU Enhancement,11,May,BAU
+Story,SFDC-754,Add Referencing Callout Permisisons to PermSetGroups,Released,SFDC-431,RBAC,11,May,RBAC
+Story,SFDC-753,Lead Tenant OCR Validation Rule,Released,SFDC-433,BAU Enhancement,11,May,BAU
+Story,SFDC-738,Create PS_SYS_Edit_All_Fields permission Set,Released,SFDC-431,RBAC,11,May,RBAC
+Story,SFDC-737,Create PS_SYS_View_All_Fields permission set,Released,SFDC-431,RBAC,11,May,RBAC
+Story,SFDC-654,Create System Admin Permission Sets and Group,Released,SFDC-431,RBAC,11,May,RBAC
+Story,SFDC-645,System Support Perm Set,Released,SFDC-431,RBAC,11,May,RBAC
+Story,SFDC-640,Retrospectively remove excess COM - Object Permissions from Commercial Lettings Team PermSetGroup,Released,SFDC-431,RBAC,11,May,RBAC
+Story,SFDC-284,Opportunity Page Layout Update,Released,SFDC-432,Audit - UX,11,May,BAU
+Story,SFDC-835,Viewing on Activity Timeline,Released,SFDC-789,Viewing Tours,12,June,Mini Project
+Story,SFDC-828,Add Viewing Tour field to Event,Released,SFDC-789,Viewing Tours,12,June,Mini Project
+Story,SFDC-827,Remove Delete Button on Event,Released,SFDC-789,Viewing Tours,12,June,Mini Project
+Story,SFDC-826,Move Related List on Opp,Released,SFDC-789,Viewing Tours,12,June,Mini Project
+Story,SFDC-817,Create Viewing Cancellation Email Template,Released,SFDC-789,Viewing Tours,12,June,Mini Project
+Story,SFDC-809,Home Page Component - Today's Viewings,Released,SFDC-789,Viewing Tours,12,June,Mini Project
+Story,SFDC-808,Remove Viewing Units from a Viewing Journey,Released,SFDC-789,Viewing Tours,12,June,Mini Project
+Story,SFDC-807,Add Viewing Units to a Viewing Tour,Released,SFDC-789,Viewing Tours,12,June,Mini Project
+Story,SFDC-805,Add Viewing Unit Related lists,Released,SFDC-789,Viewing Tours,12,June,Mini Project
+Story,SFDC-804,Complete a Viewing Journey,Released,SFDC-789,Viewing Tours,12,June,Mini Project
+Story,SFDC-802,Update/Cancel a Viewing Journey,Released,SFDC-789,Viewing Tours,12,June,Mini Project
+Story,SFDC-801,Create Viewing Event Record Type,Released,SFDC-789,Viewing Tours,12,June,Mini Project
+Story,SFDC-800,Viewing Journey Creation/Update Flow,Released,SFDC-789,Viewing Tours,12,June,Mini Project
+Story,SFDC-799,Create Viewing Unit Object,Released,SFDC-789,Viewing Tours,12,June,Mini Project
+Story,SFDC-786,Update Agreement Types,Released,SFDC-433,BAU Enhancement,12,June,BAU
+Story,SFDC-785,See Tenancy Contact Roles on an Account,Released,SFDC-433,BAU Enhancement,12,June,BAU
+Story,SFDC-461,Create Viewing Tour Object,Released,SFDC-789,Viewing Tours,12,June,Mini Project

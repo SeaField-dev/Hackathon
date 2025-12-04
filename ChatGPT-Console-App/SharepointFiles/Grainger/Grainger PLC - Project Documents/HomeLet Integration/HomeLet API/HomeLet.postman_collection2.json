@@ -1,0 +1,274 @@
+{
+	"info": {
+		"_postman_id": "ca2f4160-6da1-4432-8a3c-0ca4329f4311",
+		"name": "HomeLet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Composite API - Update OpportunityContactRole and Contact",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"allOrNone\":false,\n    \"compositeRequest\": [ {\n        \"method\":\"GET\",\n        \"url\": \"/services/data/v56.0/query?q=SELECT+Id,ContactId+FROM+OpportunityContactRole+WHERE+Referencing_Applicant_Id__c='679561'+AND+Opportunity.Referencing_Property_Tenancy_Id__c='87632'\",\n        \"referenceId\": \"OCR\"\n        },{\n        \"method\" : \"PATCH\",\n        \"url\" : \"/services/data/v56.0/sobjects/OpportunityContactRole/@{OCR.records[0].Id}\",\n        \"referenceId\" : \"UpdatedOCR\",\n        \"body\" : {\n          \"Reference_Check_Status__c\" : \"Complete\",\n          \"Referencing_Outcome__c\" : \"Not Acceptable\"\n            }\n        },{\n        \"method\" : \"PATCH\",\n        \"url\" : \"/services/data/v56.0/sobjects/Contact/@{OCR.records[0].ContactId}\",\n        \"referenceId\" : \"UpdatedContact\",\n        \"body\" : {\n          \"MailingCity\" : \"London\",\n          \"MailingCountry\" : \"UK\",\n          \"MailingPostalCode\" : \"12345\",\n          \"MailingState\" : \"County of London\",\n          \"MailingStreet\" : \"55 Bond Street\",\n          \"Salutation\" : \"Dr\"\n        }       \n    }]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://graingerplc--sit.sandbox.my.salesforce.com/services/data/v56.0/composite",
+					"protocol": "https",
+					"host": [
+						"graingerplc--sit",
+						"sandbox",
+						"my",
+						"salesforce",
+						"com"
+					],
+					"path": [
+						"services",
+						"data",
+						"v56.0",
+						"composite"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "3MVG9Lf04EwncL7muPTHca2wUG7tlzUFZ8VcI8M5ENqM8fLqlEF3yAXiO2fRwKbLWEMOJYQeNvJamuXvITINp",
+							"type": "default"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://localhost:5100/intermediate",
+							"type": "default"
+						},
+						{
+							"key": "response_type",
+							"value": "code",
+							"type": "default"
+						},
+						{
+							"key": "scope",
+							"value": "openid profile admin publicuser ",
+							"type": "default"
+						},
+						{
+							"key": "code_challenge",
+							"value": "d8CjMyCs9nHXt6D6A-Y3eVs9yVXVIVJSsRLM__o2eNk",
+							"type": "default"
+						},
+						{
+							"key": "code_challenge_method",
+							"value": "S256",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://graingerplc--sit.sandbox.my.salesforce.com/services/oauth2/authorize",
+					"protocol": "https",
+					"host": [
+						"graingerplc--sit",
+						"sandbox",
+						"my",
+						"salesforce",
+						"com"
+					],
+					"path": [
+						"services",
+						"oauth2",
+						"authorize"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get access token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "3MVG9Lf04EwncL7muPTHca2wUG7tlzUFZ8VcI8M5ENqM8fLqlEF3yAXiO2fRwKbLWEMOJYQeNvJamuXvITINp",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://localhost:5100/intermediate",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "openid profile",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "code_challenge",
+							"value": "LIA5jqA3syYKC3IkomVlkSfyZ3wI9GgCQD4sIj54ZNo",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "code_challenge_method",
+							"value": "S256",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "code_verifier",
+							"value": "eyIxIjozNywiMiI6MTY3LCIzIjoxNjYsIjQiOjcxfQ",
+							"type": "default"
+						},
+						{
+							"key": "code",
+							"value": "aPrxNAl_XBkuWs9RcxpW3aZbn59TFFbCs_b2PiwgmIMwKLz6eGoIwEAgRLz5ul6fcn3olBpPoQ==",
+							"type": "default"
+						},
+						{
+							"key": "client_secret",
+							"value": "BE9606AC587B57B21B1DACF6800A12AB7DDD002F0496F9746A09AF9C7753EE70",
+							"type": "default",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://graingerplc--sit.sandbox.my.salesforce.com/services/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"graingerplc--sit",
+						"sandbox",
+						"my",
+						"salesforce",
+						"com"
+					],
+					"path": [
+						"services",
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://graingerplc--sit.sandbox.my.salesforce.com/services/data/v56.0/composite",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"allOrNone\":false,\n    \"compositeRequest\": [ {\n        \"method\":\"GET\",\n        \"url\": \"/services/data/v56.0/query?q=SELECT+Id,ContactId+FROM+OpportunityContactRole+WHERE+Referencing_Applicant_Id__c!=null,\n        \"referenceId\": \"OCR\"\n        }\n    }]\n}"
+				},
+				"url": {
+					"raw": "https://graingerplc--sit.sandbox.my.salesforce.com/services/data/v56.0/composite",
+					"protocol": "https",
+					"host": [
+						"graingerplc--sit",
+						"sandbox",
+						"my",
+						"salesforce",
+						"com"
+					],
+					"path": [
+						"services",
+						"data",
+						"v56.0",
+						"composite"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "clientSecret",
+				"value": "2DF21685CEC255E111D9CF5C2796D46847E57E6230BBE20B06B34339FC282810",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "3MVG9Lf04EwncL7muPTHca2wUGw5NF20FMJhJ9QR..nBj.ajZN1eJVljCqR0YQNpoUjIhOqDzit90SIu7kpSY",
+				"type": "string"
+			},
+			{
+				"key": "tokenName",
+				"value": "salesforce_token",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://graingerplc--sit.sandbox.my.salesforce.com/services/oauth2/token",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"value": "",
+			"type": "default",
+			"disabled": true
+		}
+	]
+}

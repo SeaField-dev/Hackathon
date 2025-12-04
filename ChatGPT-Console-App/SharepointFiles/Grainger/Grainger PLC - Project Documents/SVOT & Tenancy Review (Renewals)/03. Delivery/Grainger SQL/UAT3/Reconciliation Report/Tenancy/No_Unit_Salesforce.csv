@@ -1,0 +1,8 @@
+"con_tran","tenant_reference","parent_reference","name","status","unit_reference","unit_status","unit_tenure","unit_type","tenancy_commenced","tenancy_terminates","tenant_info","tenant_type","salesforce_unit_id"
+"Sharer","122486113601","122486113001",,"Current","122486113","Non Lettable","Services","Reception",,,"0034J00000a4dn7QAA",,"a1GNz000009GenVMAS"
+"Sharer","122486114601","122486114001",,"Current","122486114","Non Lettable","Services","Reception",,,"0034J00000a4dn7QAA",,"a1GNz000009GesLMAS"
+"Sharer","122489028601","122489028001","Millgrove Construction Ltd","Current","122489028","Tenanted","CommLease","Commercial","2022-07-01","2025-06-30","0038d00000G7SgqAAF",,"a1GNz000004b2i5MAA"
+"Sharer","127865001601","127865001001","Sally Bobhia","Current","127865001","Tenanted","Sh Owner","S/D House","2024-08-05",,"003Nz00000YcXozIAF","Lead Tenant","a1GNz000004TMSfMAO"
+"Sharer","127866001601","127866001001","George Calculator","Current","127866001","Tenanted","Sh Owner","S/D House","2024-08-05",,"003Nz00000UAxlYIAT","Lead Tenant","a1GNz000004TMPRMA4"
+"Sharer","127866001602","127866001001","Christopher Pencil","Current","127866001","Tenanted","Sh Owner","S/D House","2024-08-05",,"003Nz00000UBBTWIA5","Tenant","a1GNz000004TMPRMA4"
+"Sharer","127867001601","127867001001","Bluebell Fountainpen","Current","127867001","Tenanted","Aff Rent","End Terrace","2024-08-05",,"003Nz00000NuNG6IAN","Lead Tenant","a1GNz000004TFlWMAW"

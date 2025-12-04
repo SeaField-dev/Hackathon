@@ -1,0 +1,116 @@
+#,"Score, 🔽",Name,Package,Label,Category,IsProtected,Language,Value,Using,Referenced in,Ref. in Apex Class?,Ref. in Flow?,Referenced in Inactive Flow?,Dependencies
+,,,,,,,,,,,,,,
+1,1,Landlord_Break_2_10_TO_EXPIRE_AT_12,,Landlord Break - 2 @10 TO EXPIRE AT 12,,,en_US,You agree that we may end the tenancy by giving you written notice. The law requires us to give you ...,,Not used!,,,,No dependency
+2,1,Landlord_Break_2_6_TO_EXPIRE_8,,Landlord Break - 2 @ 6 TO EXPIRE @ 8,,,en_US,You agree that we may end the tenancy by giving you written notice. The law requires us to give you ...,,Not used!,,,,No dependency
+3,1,Landlord_Break_2_8_TO_EXPIRE_AT_10,,Landlord Break - 2 @ 8 TO EXPIRE AT 10,,,en_US,You agree that we may end the tenancy by giving you written notice. The law requires us to give you ...,,Not used!,,,,No dependency
+4,1,Landlord_Break_2_MONTHS_4_MONTHS_TO_EXPIRE_AT_6,,Landlord Break - 2 MONTHS @ 4 MONTHS TO EXPIRE AT 6,,,en_US,You agree that we may end the tenancy by giving you written notice. The law requires us to give you ...,,Not used!,,,,No dependency
+5,1,Landlord_Break_HALFWAY_ON_AN_18_MONTH,,Landlord Break - HALFWAY ON AN 18 MONTH,,,en_US,You agree that we may end the tenancy by giving you written notice. The law requires us to give you ...,,Not used!,,,,No dependency
+6,1,Landlord_Break_HALFWAY_ON_A_24_MONTH,,Landlord Break - HALFWAY ON A 24 MONTH,,,en_US,You agree that we may end the tenancy by giving you written notice. The law requires us to give you ...,,Not used!,,,,No dependency
+7,1,Landlord_Break_HALFWAY_ON_A_36_MONTH,,Landlord Break - HALFWAY ON A 36 MONTH,,,en_US,You agree that we may end the tenancy by giving you written notice. The law requires us to give you ...,,Not used!,,,,No dependency
+8,1,SC1,,SC1,,,en_US,"If a Rent in Advance payment is applicable, the charges will be detailed under the Payment schedule ...",,Not used!,,,,No dependency
+9,1,SC2,,SC2,,,en_US,"If a Promo Code is applicable, the charges will be detailed under the Payment schedule in Attachment...",,Not used!,,,,No dependency
+10,1,SC_Gas_and_Electricity_included_in_Rent,,SC - Gas and Electricity included in Rent,,,en_US,Gas and Electricity included in Rent Utilities The obligations to pay Gas and Electricity as descr...,,Not used!,,,,No dependency
+11,1,SC_Live_Work,,SC - Live Work,,,en_US,The parties agree that either party has the right to terminate the Tenancy after the first SIX (6) m...,,Not used!,,,,No dependency
+12,1,SC_Right_to_Rent_Occupation,,SC - Right to Rent Occupation,,,en_US,Right to Rent Occupation Clause Not to allow any adult to occupy the Premises unless such person ha...,,Not used!,,,,No dependency
+13,1,SC_Shillington_H_S_Clause_One,,SC - Shillington H&S Clause One,,,en_US,Not use locked cupboards in bedrooms The locked cupboard marked with a No Entry sign in one of the ...,,Not used!,,,,No dependency
+14,1,SC_Shillington_H_S_Clause_Three,,SC - Shillington H&S Clause Three,,,en_US,Not interfere with the Ventilation Unit and electrical fused spur linked to it The Tenant confirms ...,,Not used!,,,,No dependency
+15,1,SC_Shillington_H_S_Clause_Two,,SC - Shillington H&S Clause Two,,,en_US,Deactivation of sprinkler system alarm panel In the event of the sprinkler system activating the Te...,,Not used!,,,,No dependency
+16,1,Tenant_Break_2_10_TO_EXPIRE_AT_12,,Tenant Break - 2 @10 TO EXPIRE AT 12,,,en_US,In order to end the tenancy early you may serve on us written notice at any time after ten months fr...,,Not used!,,,,No dependency
+17,1,Tenant_Break_2_6_TO_EXPIRE_8,,Tenant Break - 2 @ 6 TO EXPIRE @ 8,,,en_US,In order to end the tenancy early you may serve on us written notice at any time after six months fr...,,Not used!,,,,No dependency
+18,1,Tenant_Break_2_8_TO_EXPIRE_AT_10,,Tenant Break - 2 @ 8 TO EXPIRE AT 10,,,en_US,In order to end the tenancy early you may serve on us written notice at any time after eight months ...,,Not used!,,,,No dependency
+19,1,Tenant_Break_2_at_4_to_Expire_at_6,,Tenant Break - 2 MONTHS @ 4 MONTHS TO EXPIRE AT 6,,,en_US,In order to end the tenancy early you may serve on us written notice at any time after four months f...,,Not used!,,,,No dependency
+20,1,Tenant_Break_HALFWAY_ON_AN_18_MONTH,,Tenant Break - HALFWAY ON AN 18 MONTH,,,en_US,In order to end the tenancy early you may serve on us written notice at any time after seven months ...,,Not used!,,,,No dependency
+21,1,Tenant_Break_HALFWAY_ON_A_24_MONTH,,Tenant Break - HALFWAY ON A 24 MONTH,,,en_US,In order to end the tenancy early you may serve on us written notice at any time after ten months fr...,,Not used!,,,,No dependency
+22,1,Tenant_Break_HALFWAY_ON_A_36_MONTH,,Tenant Break - HALFWAY ON A 36 MONTH,,,en_US,In order to end the tenancy early you may serve on us written notice at any time after sixteen month...,,Not used!,,,,No dependency
+23,1,Water_rates_recharge_special_clause_Clause_One,,Water rates recharge special clause Clause One,,,en_US,"Water Recharge For any property without a separate or individual water meter, you agree to pay such...",,Not used!,,,,No dependency
+24,1,Water_rates_recharge_special_clause_Clause_Two,,Water rates recharge special clause Clause Two,,,en_US,We reserve the right to increase or decrease the payments required under this clause in the event th...,,Not used!,,,,No dependency
+25,1,No_Break,,No Break,,,en_US,No Break Clause,,Not used!,,,,No dependency
+26,1,AST_and_NHA1_months_notice_serveable_at_any_time,,AST and NHA1 months notice serveable at any time,,,en_US,The Landlord agrees that the Tenant has the right to terminate the Tenancy by giving the Landlord no...,,Not used!,,,,No dependency
+27,1,AST_and_NHA_2_months_notice_servable_at_any_time,,AST and NHA 2 months notice servable at any time,,,en_US,The Landlord agrees that the Tenant has the right to terminate the Tenancy by giving the Landlord no...,,Not used!,,,,No dependency
+28,1,AST_and_NHA1_Landlord_months_notice_serveable_at_any_time,,AST and NHA1 Landlord months notice serveable at any time,,,en_US,The Tenant agrees that the Landlord has the right to terminate the Tenancy by giving the Tenant not ...,,Not used!,,,,No dependency
+29,1,AST_and_NHA_2_Landlord_months_notice_servable_at_any_time,,AST and NHA 2 Landlord months notice servable at any time,,,en_US,The Tenant agrees that the Landlord has the right to terminate the Tenancy by giving the Tenant not ...,,Not used!,,,,No dependency
+30,1,General_Task_Record_Type_Id,,General Task Record Type Id,RecordTypeId,,en_US,0128d000000YAJcAAO,,Not used!,,,,No dependency
+31,1,Instruction_Task_Record_Type_Id,,Instruction Task Record Type Id,RecordTypeId,,en_US,0128d000000YAJdAAO,,Not used!,,,,No dependency
+32,1,Invoice_Credit_Task_Record_Type,,Invoice Credit Task Record Type,RecordTypeId,,en_US,0128d000000YAJdAAO,,6,,6 Flows,5 Flows,Dependencies
+33,1,Valuation_Task_Record_Type_ID,,Valuation Task Record Type ID,RecordTypeId,,en_US,0128d000000YAJfAAO,,Not used!,,,,No dependency
+34,1,AST_Change_of_Sharer_Clause_part1,,AST- Change of Sharer Clause part1,,,en_US,1) The vacating tenant(s) shall cease to be a Tenant of the above property and shall have no claim o...,,Not used!,,,,No dependency
+35,1,AST_Change_of_Sharer_Clause_part2,,AST- Change of Sharer Clause part2,,,en_US,4) Grainger Residential Management Ltd will have no involvement in the settlement of the outgoing te...,,Not used!,,,,No dependency
+36,1,AST_Pet_Clause_1,,AST Pet Clause - 1,,,en_US,The Landlord agrees solely for the purpose of this Tenancy that the Tenant may keep a dog on the Pro...,,Not used!,,,,No dependency
+37,1,Livework_Change_of_Sharer_Clause,,Livework - Change of Sharer Clause - Part1,,,en_US,1) The vacating tenant(s) shall cease to be a Tenant of the above property and shall have no claim o...,,Not used!,,,,No dependency
+38,1,Livework_Change_of_Sharer_Clause_Part2,,Livework - Change of Sharer Clause - Part2,,,en_US,4) Grainger Residential Management Ltd will not be involved in the settlement of the outgoing tenant...,,Not used!,,,,No dependency
+39,1,No_action_selected,,No action selected,Activity Timeline,true,en_US,No action selected,,Not used!,,,,No dependency
+40,1,Note,,Note,Activity Timeline,true,en_US,Note,,Not used!,,,,No dependency
+41,,Add_Offer_AvailableDate_Exception,,Add_Offer_AvailableDate_Exception,UnitSearch component message handler,,en_US,You can't add Offers with empty Available Date.,,1,1 Apex Class,,,Dependencies
+42,,Add_Offer_Duplicate_Message,,Add_Offer_Duplicate_Message,UnitSearch component message handler,,en_US,This offer exists on this opportunity.,,1,1 Apex Class,,,Dependencies
+43,,Add_Offer_Exception_Message,,Add_Offer_Exception_Message,UnitSearch component message handler,,en_US,Process has failed! Please contact the Administrator.,,1,1 Apex Class,,,Dependencies
+44,,Add_Offer_Move_In_Validation_Exception,,Add_Offer_Move_In_Validation_Exception,UnitSearch component message handler,,en_US,Move in (Start) Date OR Move in (End) Date cannot be before the Live Unit's Available Date,,1,1 Apex Class,,,Dependencies
+45,,Add_Offer_Success_Message,,Add_Offer_Success_Message,UnitSearch component message handler,,en_US,Offer has been successfully added to the opportunity.,,1,1 Apex Class,,,Dependencies
+46,,Email_Break_2_AT_10_TO_EXPIRE_12,,Email Break 2 AT 10 TO EXPIRE 12,,,en_US,The earliest you can vacate is 12 months from the start of the tenancy provided you give 2 months no...,,1,,,,Dependencies
+47,,Email_Break_2_AT_4_TO_EXPIRE_6,,Email Break 2 AT 4 TO EXPIRE 6,,,en_US,The earliest you can vacate is 6 months from the start of the tenancy provided you give 2 months not...,,1,,,,Dependencies
+48,,Email_Break_2_AT_6_TO_EXPIRE_8,,Email Break 2 AT 6 TO EXPIRE 8,,,en_US,The earliest you can vacate is 8 months from the start of the tenancy provided you give 2 months not...,,1,,,,Dependencies
+49,,Email_Break_2_AT_8_TO_EXPIRE_10,,Email Break 2 AT 8 TO EXPIRE 10,,,en_US,The earliest you can vacate is 10 months from the start of the tenancy provided you give 2 months no...,,1,,,,Dependencies
+50,,Email_Break_HALFWAY_ON_AN_18,,Email Break HALFWAY ON AN 18,,,en_US,The earliest you can vacate is 9 months from the start of the tenancy provided you give 2 months not...,,1,,,,Dependencies
+51,,Email_Break_HALFWAY_ON_AN_24,,Email Break HALFWAY ON AN 24,,,en_US,The earliest you can vacate is 12 months from the start of the tenancy provided you give 2 months no...,,1,,,,Dependencies
+52,,Email_Break_HALFWAY_ON_AN_36,,Email Break HALFWAY ON AN 36,,,en_US,The earliest you can vacate is 18 months from the start of the tenancy provided you give 2 months no...,,1,,,,Dependencies
+53,,Email_Break_LIVE_WORK,,Email Break LIVE WORK,,,en_US,The earliest you can vacate is 6 months from the start of the tenancy provided you give 2 months not...,,1,,,,Dependencies
+54,,Email_Break_NO_BREAK,,Email Break NO BREAK,,,en_US,No break clause,,1,,,,Dependencies
+55,,Live_Work,,Live Work,,,en_US,The parties agree that either party has the right to terminate the Tenancy after the first SIX (6) m...,,1,,,,Dependencies
+56,,SC_Company_Let_Immigration_Act,,SC - Company Let - Immigration Act,,,en_US,Company Let - Immigration Act The Landlord and Tenant further agree that the duty to undertake Righ...,,1,,,,Dependencies
+57,,SC_Gas_Electricity_and_Water_included_in_Rent,,"SC - Gas, Electricity and Water included in Rent",,,en_US,"Gas, Electricity and Water included in Rent Utilities The obligations to pay Gas, Electricity and ...",,1,,,,Dependencies
+58,,SC_Gas_Water_Electricity_and_Council_Tax_included_in_the_Rent_Utilities,,"SC - Gas, Water, Electricity and Council Tax included in the Rent Utilities",,,en_US,"Gas, Water, Electricity and Council Tax included in the Rent Utilities The obligations to pay ...",,1,,,,Dependencies
+59,,SC_Provision_of_Bed_Linen,,SC - Provision of Bed Linen,,,en_US,Provision of Bed Linen At the date of commencement of the Tenancy the Landlord will provide at the ...,,1,,,,Dependencies
+60,,SC_Tenant_to_be_released_if_made_redundant,,SC - Tenant to be released if made redundant,,,en_US,Tenant to be released if made redundant It is hereby agreed that in the event that a one or all of ...,,1,,,,Dependencies
+61,,SC_Water_and_Electricity_included_in_Rent,,SC - Water and Electricity included in Rent,,,en_US,Water and Electricity included in Rent Utilities The obligations to pay Electricity and Water as d...,,1,,,,Dependencies
+62,,SC_Water_rates_contribution_special_clause,,SC - Water rates contribution special clause,,,en_US,"Water rates contribution The rent detailed in the Main terms of this agreement, Clause B5 includes ...",,1,,,,Dependencies
+63,,WebAppURL,,WebAppOfferLink,,,en_US,https://apply.withgrainger.co.uk/signup/,,3,,,,Dependencies
+64,,LW_2_months_notice_servable_at_any_time,,LW 2 months notice servable at any time,,,en_US,The Landlord agrees that the Tenant has the right to terminate the Tenancy giving the Landlord not l...,,1,,,,Dependencies
+65,,LW_Renewal_1_month,,LW 1 months notice servable at any time,,,en_US,The Landlord agrees that the Tenant has the right to terminate the Tenancy giving the Landlord not l...,,1,,,,Dependencies
+66,,Acceptable_File_Extension,,Acceptable File Extension,,,en_US,".png, .pdf, .jpg, .mp4, .mov",,1,,,,Dependencies
+67,,Confirm_Message,,Confirm Message,,,en_US,Are you sure?,,1,,,,Dependencies
+68,,Media_Delete_Success_Message,,Media Delete Success Message,,,en_US,Media deleted successfully!,,1,,,,Dependencies
+69,,Media_Upload_Success_Message,,Media Upload Success Message,,,en_US,File(s) uploaded successfully!,,1,,,,Dependencies
+70,,LettingsPortalCommunityId,,LettingsPortalCommunityId,Community,,en_US,0DB8d000000wlhTGAQ,,1,,1 Flow,,Dependencies
+71,,All_Time,,All Time,Activity Timeline,,en_US,All Time,,1,,,,Dependencies
+72,,All_Types,,All Types,Activity Timeline,,en_US,All Types,,1,,,,Dependencies
+73,,Apply,,Apply,Activity Timeline,,en_US,Apply,,1,,,,Dependencies
+74,,Collapse_All,,Collapse All,Activity Timeline,true,en_US,Collapse All,,1,,,,Dependencies
+75,,Date_Range,,Date Range,Activity Timeline,,en_US,Date Range,,1,,,,Dependencies
+76,,Description,,Description,Activity Timeline,,en_US,Description,,3,,,,Dependencies
+77,,Either_recordId_or_configId_are_empty,,Either recordId or configId are empty.,Activity Timeline,,en_US,Either recordId or configId are empty.,,1,,,,Dependencies
+78,,EoT_Task_Active,,EoT_Task_Active,,,en_US,Active,,1,,,,Dependencies
+79,,EoT_Task_Complete,,EoT_Task_Complete,,,en_US,Complete,,1,,,,Dependencies
+80,,EoT_Task_In_Progress,,EoT_Task_In_Progress,,,en_US,In Progress,,1,,,,Dependencies
+81,,EoT_Task_Pending,,EoT_Task_Pending,,,en_US,Pending,,1,,,,Dependencies
+82,,EoT_Tasks_Activity_Timeline_Configuration_Id,,Id of configuration record used for custom activity timeline FVVP-190,,,en_US,a2AUE000000JFBR2A4,,1,,,,Dependencies
+83,,Error_loading_data,,Error loading data,Activity Timeline,,en_US,Error loading data,,1,,,,Dependencies
+84,,Expand_All,,Expand All,Activity Timeline,true,en_US,Expand All,,1,,,,Dependencies
+85,,Filter,,Filter,Activity Timeline,,en_US,Filter,,1,,,,Dependencies
+86,,Filter_Results,,Filter Results,Activity Timeline,,en_US,Filter Results,,1,,,,Dependencies
+87,,Filters,,Filters,Activity Timeline,,en_US,Filters,,1,,,,Dependencies
+88,,Invalid_parameters,,Invalid parameters,Activity Timeline,,en_US,Invalid parameters,,1,,,,Dependencies
+89,,Last_30_days,,Last 30 days,Activity Timeline,,en_US,Last 30 days,,1,,,,Dependencies
+90,,Last_7_days,,Last 7 days,Activity Timeline,,en_US,Last 7 days,,1,,,,Dependencies
+91,,Name,,Name,Activity Timeline,,en_US,Name,,1,,,,Dependencies
+92,,Next_7_days,,Next 7 days,Activity Timeline,,en_US,Next 7 days,,1,,,,Dependencies
+93,,No_Subject,,No Subject,Activity Timeline,,en_US,No Subject,,1,,,,Dependencies
+94,,No_data_found,,No data found,Activity Timeline,,en_US,No data found,,1,,,,Dependencies
+95,,Notes,,Notes,Activity Timeline,true,en_US,Notes,,1,,,,Dependencies
+96,,Overdue,,Overdue,Activity Timeline,,en_US,Overdue,,1,,,,Dependencies
+97,,Refresh_Data,,Refresh Data,Activity Timeline,,en_US,Refresh Data,,1,,,,Dependencies
+98,,Search,,Search,timeline,true,en_US,Search,,1,,,,Dependencies
+99,,Select_Objects,,Select Objects,Activity Timeline,,en_US,Select Objects,,1,,,,Dependencies
+100,,Toggle_details,,Toggle details,Activity Timeline,,en_US,Toggle details,,4,,,,Dependencies
+101,,Upcoming,,Overdue,Activity Timeline,,en_US,Overdue,,1,,,,Dependencies
+102,,You,,You,Activity Timeline,,en_US,You,,2,,,,Dependencies
+103,,and,,and,Activity Timeline,,en_US,and,,1,,,,Dependencies
+104,,created_a_task_with,,created a task with,Activity Timeline,,en_US,created a task with,,1,,,,Dependencies
+105,,had_a_task,,had a task,Activity Timeline,,en_US,had a task,,1,,,,Dependencies
+106,,have_a_task,,have a task,Activity Timeline,,en_US,have a task,,1,,,,Dependencies
+107,,have_a_task_overdue,,have a task overdue,Activity Timeline,,en_US,have a task overdue,,1,,,,Dependencies
+108,,have_a_upoming_task_with,,have an upcoming task with,Activity Timeline,,en_US,have an upcoming task with,,1,,,,Dependencies
+109,,logged_a_call_with,,logged a call with,Activity Timeline,,en_US,logged a call with,,1,,,,Dependencies
+110,,logged_a_task,,logged a task,Activity Timeline,,en_US,logged a task,,1,,,,Dependencies
+111,,other,,other,Activity Timeline,,en_US,other,,1,,,,Dependencies
+112,,others,,others,Activity Timeline,,en_US,others,,1,,,,Dependencies
+113,,sent_an_email,,sent an email,Activity Timeline,,en_US,sent an email,,1,,,,Dependencies
+114,,sent_an_email_to,,sent an email to,Activity Timeline,,en_US,sent an email to,,1,,,,Dependencies
