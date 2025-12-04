@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Local ChatGPT - React</title>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.4.0/dist/purify.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            display: flex;
+            height: 100vh;
+            background: #f5f5f5;
+        }
+
+        #root {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        #sidebar {
+            width: 280px;
+            background: #373c3c;
+            color: white;
+            padding: 24px;
+            overflow-y: auto;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+        }
+
+        #newBtn {
+            background: #BCD727;
+            padding-top: 10px;
+            padding: 14px;
+            width: 100%;
+            font-size: 15px;
+            font-weight: 600;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        #newBtn:hover { 
+            background: #a8b920;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(188, 215, 39, 0.3);
+        }
+
+        .history-item {
+            padding: 12px 14px;
+            background: #6E7878;
+            margin-bottom: 8px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        .history-item:hover {
+            background: #7d8888;
+        }
+
+        .history-item.active {
+            background: #999999 !important;
+            box-shadow: 0 2px 8px rgba(188, 215, 39, 0.2);
+        }
+
+        .history-left {
+            flex: 1;
+            cursor: pointer;
+            padding-right: 10px;
+            color: white;
+            word-break: break-word;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        .icon-container {
+            display: flex;
+            gap: 4px;
+        }
+
+        .icon-btn {
+            color: white;
+            cursor: pointer;
+            padding: 6px 8px;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+
+        .icon-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .rename-icon { font-size: 16px; }
+        .delete-icon { font-size: 16px; }
+
+        .rename-input {
+            width: 100%;
+            padding: 8px;
+            background: #999999;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            font-family: inherit;
+            font-weight: 300;
+        }
+
+        #main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+            padding: 32px;
+        }
+
+        h2 {
+            font-weight: 300;
+            font-size: 28px;
+            color: #373c3c;
+            margin: 0 0 24px 0;
+            letter-spacing: 0.5px;
+        }
+
+        #chat {
+            flex: 1;
+            background: #fafafa;
+            border-radius: 16px;
+            padding: 24px;
+            overflow-y: auto;
+            border: 1px solid #e8e8e8;
+        }
+
+        .bubble {
+            max-width: 75%;
+            padding: 10px 20px;
+            margin: 12px 0;
+            border-radius: 16px;
+            opacity: 0;
+            transform: translateY(4px);
+            animation: bubbleIn 0.18s ease-out forwards;
+            font-size: 15px;
+            line-height: 1.6;
+            font-weight: 300;
+            height: auto;  
+            width: max-content;
+            min-width: 20%;
+        }
+
+        .bubble p {
+            margin: 0;
+        }
+
+        .bubble ul, .bubble ol {
+            margin: 8px 0;
+            padding-left: 24px;
+        }
+
+        @keyframes bubbleIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .user { 
+            background: #BCD727;
+            color: #373c3c;
+            margin-left: auto;
+            font-weight: 400;
+            box-shadow: 0 2px 8px rgba(188, 215, 39, 0.2);
+        }
+
+        .assistant { 
+            background: white;
+            color: #373c3c;
+            margin-right: auto;
+            border: 1px solid #e8e8e8;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+
+        .timestamp {
+            font-size: 11px;
+            opacity: 0.5;
+            margin-top: 6px;
+            text-align: right;
+            font-weight: 400;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 5px;
+            padding: 8px 0;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: #999999;
+            border-radius: 50%;
+            animation: blink 1.4s infinite both;
+        }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes blink {
+            0% { opacity: 0.2; }
+            20% { opacity: 1; }
+            100% { opacity: 0.2; }
+        }
+
+        #inputContainer {
+            margin-top: 16px;
+            display: flex;
+        }
+
+        #inputWrapper {
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 2px solid #e8e8e8;
+            border-radius: 16px;
+            width: 100%;
+            overflow: hidden;
+            transition: border-color 0.2s ease;
+        }
+
+        #inputWrapper:focus-within {
+            border-color: #BCD727;
+        }
+
+        #input {
+            flex: 1;
+            padding: 16px 20px;
+            font-size: 15px;
+            border: none;
+            outline: none;
+            font-family: inherit;
+            font-weight: 300;
+            color: #373c3c;
+        }
+
+        #input::placeholder {
+            color: #999999;
+        }
+
+        #sendBtn {
+            background: #BCD727;
+            color: #373c3c;
+            border: none;
+            padding: 0 24px;
+            height: 100%;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 600;
+        }
+
+        #sendBtn:hover { 
+            background: #a8b920;
+        }
+
+        #sendBtn:disabled {
+            background: #e8e8e8;
+            color: #999999;
+            cursor: not-allowed;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f5f5f5;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #BCD727;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8b920;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+
+        const API_BASE = "http://localhost:8000";
+
+        function renderMarkdown(mdText) {
+            const html = marked.parse(mdText || "");
+            return DOMPurify.sanitize(html);
+        }
+
+        function timestamp() {
+            return new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+        }
+
+        function TypingIndicator() {
+            return (
+                <div className="typing-indicator">
+                    <div className="typing-dot"></div>
+                    <div className="typing-dot"></div>
+                    <div className="typing-dot"></div>
+                </div>
+            );
+        }
+
+        function ChatBubble({ text, sender, isTyping }) {
+            const contentRef = useRef(null);
+            const [displayText, setDisplayText] = useState("");
+            const [isAnimating, setIsAnimating] = useState(isTyping);
+
+            useEffect(() => {
+                if (isTyping && text) {
+                    const speed = 4;
+                    let i = 0;
+
+                    const animate = () => {
+                        if (i < text.length) {
+                            setDisplayText(text.slice(0, i));
+                            i += speed;
+                            requestAnimationFrame(animate);
+                        } else {
+                            setDisplayText(text);
+                            setIsAnimating(false);
+                        }
+                    };
+
+                    animate();
+                } else {
+                    setDisplayText(text);
+                }
+            }, [text, isTyping]);
+
+            useEffect(() => {
+                if (contentRef.current) {
+                    contentRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
+                }
+            }, [displayText]);
+
+            if (isTyping && !text) {
+                return (
+                    <div className={`bubble ${sender}`}>
+                        <TypingIndicator />
+                    </div>
+                );
+            }
+
+            return (
+                <div className={`bubble ${sender}`} ref={contentRef}>
+                    <div dangerouslySetInnerHTML={{ __html: renderMarkdown(displayText) }} />
+                    <div className="timestamp">{timestamp()}</div>
+                </div>
+            );
+        }
+
+        function HistoryItem({ item, isActive, onLoad, onDelete, onRename }) {
+            const [isRenaming, setIsRenaming] = useState(false);
+            const [renameValue, setRenameValue] = useState(item.title);
+            const inputRef = useRef(null);
+
+            useEffect(() => {
+                if (isRenaming && inputRef.current) {
+                    inputRef.current.focus();
+                    inputRef.current.select();
+                }
+            }, [isRenaming]);
+
+            const handleRename = async () => {
+                const finalTitle = renameValue.trim() === "" ? item.title : renameValue.trim();
+                await onRename(item.base, finalTitle);
+                setIsRenaming(false);
+            };
+
+            const handleKeyDown = (e) => {
+                if (e.key === "Enter") {
+                    handleRename();
+                } else if (e.key === "Escape") {
+                    setRenameValue(item.title);
+                    setIsRenaming(false);
+                }
+            };
+
+            return (
+                <div className={`history-item ${isActive ? 'active' : ''}`}>
+                    {isRenaming ? (
+                        <input
+                            ref={inputRef}
+                            className="rename-input"
+                            value={renameValue}
+                            onChange={(e) => setRenameValue(e.target.value)}
+                            onKeyDown={handleKeyDown}
+                            onBlur={handleRename}
+                        />
+                    ) : (
+                        <span className="history-left" onClick={() => onLoad(item.base)}>
+                            {item.title}
+                        </span>
+                    )}
+                    <span className="icon-container">
+                        <span className="icon-btn rename-icon" onClick={() => setIsRenaming(true)}>✎</span>
+                        <span className="icon-btn delete-icon" onClick={() => onDelete(item.base)}>🗑</span>
+                    </span>
+                </div>
+            );
+        }
+
+        function Sidebar({ history, activeChat, onNewChat, onLoadChat, onDeleteChat, onRenameChat }) {
+            return (
+                <div id="sidebar">
+                    <button id="newBtn" onClick={onNewChat}>
+                        <span style={{fontSize: '20px'}}>&#43;</span> New Chat
+                    </button>                    
+                    <h3>Chat History</h3>
+                    <div>
+                        {history.length === 0 ? (
+                            <div>No chats</div>
+                        ) : (
+                            history.map((item) => (
+                                <HistoryItem
+                                    key={item.base}
+                                    item={item}
+                                    isActive={item.base === activeChat}
+                                    onLoad={onLoadChat}
+                                    onDelete={onDeleteChat}
+                                    onRename={onRenameChat}
+                                />
+                            ))
+                        )}
+                    </div>
+                </div>
+            );
+        }
+
+        function ChatArea({ messages, isTyping, typingText }) {
+            const chatRef = useRef(null);
+
+            useEffect(() => {
+                if (chatRef.current) {
+                    chatRef.current.scrollTop = chatRef.current.scrollHeight;
+                }
+            }, [messages, isTyping, typingText]);
+
+            return (
+                <div id="chat" ref={chatRef}>
+                    {messages.length === 0 && !isTyping ? (
+                        <div style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            height: '100%',
+                            color: '#999999',
+                            fontSize: '18px',
+                            fontWeight: '300'
+                        }}>
+                            Start a new chat
+                        </div>
+                    ) : (
+                        <>
+                            {messages.map((msg, idx) => (
+                                <ChatBubble
+                                    key={idx}
+                                    text={msg.content}
+                                    sender={msg.role === "user" ? "user" : "assistant"}
+                                    isTyping={false}
+                                />
+                            ))}
+                            {isTyping && (
+                                <ChatBubble
+                                    text={typingText}
+                                    sender="assistant"
+                                    isTyping={true}
+                                />
+                            )}
+                        </>
+                    )}
+                </div>
+            );
+        }
+        function InputArea({ onSendMessage, disabled }) {
+            const [input, setInput] = useState("");
+
+            const handleSend = () => {
+                if (input.trim() && !disabled) {
+                    onSendMessage(input);
+                    setInput("");
+                }
+            };
+
+            const handleKeyDown = (e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    handleSend();
+                }
+            };
+
+            return (
+                <div id="inputContainer">
+                    <div id="inputWrapper">
+                        <input
+                            id="input"
+                            placeholder="Type a message..."
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
+                            onKeyDown={handleKeyDown}
+                            disabled={disabled}
+                        />
+                        <button id="sendBtn" onClick={handleSend} disabled={disabled}>➤</button>
+                    </div>
+                </div>
+            );
+        }
+
+        function App() {
+            const [history, setHistory] = useState([]);
+            const [activeChat, setActiveChat] = useState(null);
+            const [messages, setMessages] = useState([]);
+            const [isTyping, setIsTyping] = useState(false);
+            const [typingText, setTypingText] = useState("");
+
+            const loadHistory = async () => {
+                try {
+                    const res = await fetch(`${API_BASE}/history`);
+                    const data = await res.json();
+                    setHistory(data);
+                } catch (error) {
+                    console.error("Error loading history:", error);
+                }
+            };
+
+            useEffect(() => {
+                loadHistory();
+            }, []);
+
+            const handleNewChat = async () => {
+                try {
+                    await fetch(`${API_BASE}/new_chat`, { method: "POST" });
+                    setMessages([]); 
+                    setActiveChat(null);
+                    loadHistory();
+                } catch (error) {
+                    console.error("Error creating new chat:", error);
+                }
+            };
+
+            const handleLoadChat = async (base) => {
+                try {
+                    const res = await fetch(`${API_BASE}/load?base=${base}`);
+                    const data = await res.json();
+                    setMessages(data);
+                    setActiveChat(base);
+                } catch (error) {
+                    console.error("Error loading chat:", error);
+                }
+            };
+
+            const handleDeleteChat = async (base) => {
+                if (!confirm("Delete this chat permanently?")) return;
+                try {
+                    await fetch(`${API_BASE}/delete_chat?base=${base}`, { method: "DELETE" });
+                    setMessages([]);
+                    setActiveChat(null);
+                    loadHistory();
+                } catch (error) {
+                    console.error("Error deleting chat:", error);
+                }
+            };
+
+            const handleRenameChat = async (base, newTitle) => {
+                try {
+                    await fetch(
+                        `${API_BASE}/rename_chat?base=${encodeURIComponent(base)}&title=${encodeURIComponent(newTitle)}`,
+                        { method: "PUT" }
+                    );
+                    loadHistory();
+                } catch (error) {
+                    console.error("Error renaming chat:", error);
+                }
+            };
+
+            const handleSendMessage = async (text) => {
+                setMessages(prev => [...prev, { role: "user", content: text }]);
+                setIsTyping(true);
+                setTypingText("");
+
+                try {
+                    const response = await fetch(
+                        `${API_BASE}/chat?message=${encodeURIComponent(text)}`,
+                        { method: "GET" }
+                    );
+
+                    const reader = response.body.getReader();
+                    const decoder = new TextDecoder();
+                    let fullText = "";
+
+                    while (true) {
+                        const { done, value } = await reader.read();
+                        if (done) break;
+
+                        const chunk = decoder.decode(value, { stream: true });
+                        fullText += chunk;
+                        setTypingText(fullText);
+                    }
+
+                    setMessages(prev => [...prev, { role: "assistant", content: fullText }]);
+                    setIsTyping(false);
+                    setTypingText("");
+
+                    await loadHistory();
+
+                    if (!activeChat) {
+                        const res = await fetch(`${API_BASE}/history`);
+                        const items = await res.json();
+                        if (items.length > 0) {
+                            const last = items[items.length - 1];
+                            setActiveChat(last.base);
+                        }
+                    }
+                } catch (error) {
+                    console.error("Error sending message:", error);
+                    setIsTyping(false);
+                    setTypingText("");
+                }
+            };
+
+            return (
+                <>
+                    <Sidebar
+                        history={history}
+                        activeChat={activeChat}
+                        onNewChat={handleNewChat}
+                        onLoadChat={handleLoadChat}
+                        onDeleteChat={handleDeleteChat}
+                        onRenameChat={handleRenameChat}
+                    />
+                    <div id="main">
+                        <h2>Local ChatGPT</h2>
+                        <ChatArea messages={messages || "Start New Chat"} isTyping={isTyping} typingText={typingText}/>
+                        <InputArea onSendMessage={handleSendMessage} disabled={isTyping} />
+                    </div>
+                </>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
