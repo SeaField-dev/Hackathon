@@ -32,6 +32,7 @@
 
         #sidebar {
             width: 280px;
+            min-width: 280px;
             background: #373c3c;
             color: white;
             padding: 24px;
@@ -43,7 +44,7 @@
 
         #sidebar-content {
             flex: 1;
-            overflow-y: auto;
+            padding-right: 10px;
         }
 
         #sidebar-logo {
@@ -159,6 +160,15 @@
             flex-direction: column;
             background: #ffffff;
             padding: 32px;
+            align-items: center;  /* Add this */
+        }
+
+        #main-content {
+            width: 100%;
+            max-width: 1200px;  /* Add constraint */
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
 
         h2 {
@@ -213,7 +223,6 @@
             color: #373c3c;
             margin-left: auto;
             font-weight: 400;
-            box-shadow: 0 2px 8px rgba(188, 215, 39, 0.2);
         }
 
         .assistant { 
@@ -221,7 +230,6 @@
             color: #373c3c;
             margin-right: auto;
             border: 1px solid #e8e8e8;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
         }
 
         .timestamp {
@@ -291,7 +299,7 @@
 
         #sendBtn {
             background: #BCD727;
-            color: #373c3c;
+            color: white;
             border: none;
             padding: 0 24px;
             height: 100%;
@@ -446,7 +454,7 @@
                         />
                     ) : (
                         <span className="history-left" onClick={() => onLoad(item.base)}>
-                            {item.title}
+                            {item.title || "Untitled Chat"}
                         </span>
                     )}
                     <span className="icon-container">
@@ -460,11 +468,11 @@
         function Sidebar({ history, activeChat, onNewChat, onLoadChat, onDeleteChat, onRenameChat }) {
             return (
                 <div id="sidebar">
+                    <button id="newBtn" onClick={onNewChat}>
+                        <span style={{fontSize: '20px'}}>&#43;</span> New Chat
+                    </button>                    
+                    <h3>Chat History</h3>
                     <div id="sidebar-content">
-                        <button id="newBtn" onClick={onNewChat}>
-                            <span style={{fontSize: '20px'}}>&#43;</span> New Chat
-                        </button>                    
-                        <h3>Chat History</h3>
                         <div>
                             {history.length === 0 ? (
                                 <div>No chats</div>
@@ -593,8 +601,11 @@
                 try {
                     await fetch(`${API_BASE}/new_chat`, { method: "POST" });
                     setMessages([]); 
-                    setActiveChat(null);
-                    loadHistory();
+                    
+                    const tempId = `temp_${Date.now()}`;
+                    setActiveChat(tempId);
+                    setHistory(prev => [...prev, { base: tempId, title: "", isTemp: true }]);
+                    
                 } catch (error) {
                     console.error("Error creating new chat:", error);
                 }
@@ -663,17 +674,16 @@
                     setIsTyping(false);
                     setTypingText("");
 
-                    // Reload history after response completes
+                    // Reload history and replace temp item
                     await loadHistory();
-
-                    // Set active chat if one was created
-                    if (!activeChat) {
-                        const res = await fetch(`${API_BASE}/history`);
-                        const items = await res.json();
-                        if (items.length > 0) {
-                            const last = items[items.length - 1];
-                            setActiveChat(last.base);
-                        }
+                    
+                    const res = await fetch(`${API_BASE}/history`);
+                    const items = await res.json();
+                    if (items.length > 0) {
+                        const last = items[items.length - 1];
+                        // Remove any temp items and set the real chat as active
+                        setHistory(items);
+                        setActiveChat(last.base);
                     }
                 } catch (error) {
                     console.error("Error sending message:", error);
@@ -692,9 +702,11 @@
                         onRenameChat={handleRenameChat}
                     />
                     <div id="main">
-                        <h2>Local ChatGPT</h2>
-                        <ChatArea messages={messages || "Start New Chat"} isTyping={isTyping} typingText={typingText}/>
-                        <InputArea onSendMessage={handleSendMessage} disabled={isTyping} />
+                        <div id="main-content">
+                            <h2>Local ChatGPT</h2>
+                            <ChatArea messages={messages} isTyping={isTyping} typingText={typingText}/>
+                            <InputArea onSendMessage={handleSendMessage} disabled={isTyping} />
+                        </div>
                     </div>
                 </>
             );

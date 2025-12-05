@@ -45,7 +45,7 @@ conversation_history: List[Dict] = []
 current_chat_filename = None
 current_chat_title = None
 
-MIN_MESSAGES_FOR_TITLE = 1
+MIN_MESSAGES_FOR_TITLE = 0
 MIN_USER_CHARS = 40
 
 
